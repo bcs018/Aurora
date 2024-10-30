@@ -1,0 +1,65 @@
+html,
+body {
+    height: 100%;
+    /* Preenche toda a altura da tela */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1;
+    /* Permite que o conteúdo ocupe o espaço necessário */
+    padding-top: 100px;
+    /* Adiciona espaçamento para evitar sobreposição com o header */
+}
+/* Header */
+.navbar {
+    background-color: #343a40;
+}
+/* Card de Integrante */
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.card-img-top {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: -75px;
+    margin-bottom: 10px;
+}
+.card-body {
+    text-align: center;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+/* Footer */
+footer {
+    background-color: #06090c;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+.text-justify {
+    text-align: justify;
+}
+#sobre {
+    background-color: #ffffff;
+    color: #212529;
+    padding: 50px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#banner {
+    height: 368px;
+    background-color: #33566e;
+    text-align: center;
+}

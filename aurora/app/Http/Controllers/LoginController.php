@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         if (Auth::attempt($request->only('sim', 'password')))
-            return to_route('home.index');
+            return to_route('home.indexPage');
         else 
             return to_route('login.login')->withErrors('Usuário e/ou senha inválidos')->withInput();
     }

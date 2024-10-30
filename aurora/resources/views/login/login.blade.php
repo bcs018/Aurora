@@ -38,7 +38,7 @@
         <h3 class="mb-4">{{ env('APP_NAME') }} Nº 3551</h3>
         <!-- Logo -->
         <div class="logo">
-            <img src="{{asset('storage/images/logo-circle0.png')}}" alt="Logo {{ env('APP_NAME') }}">
+            <img src="{{asset('storage/images/logo-circles.png')}}" alt="Logo {{ env('APP_NAME') }}">
         </div>
 
         <h3 class="mb-4">Login</h3>

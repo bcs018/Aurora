@@ -9,9 +9,9 @@ class AgendaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function indexPage()
     {
-        //
+        return view('site.agenda');
     }
 
     /**
