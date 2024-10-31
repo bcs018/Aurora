@@ -11,7 +11,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('painel.usuarios');
     }
 
     /**
@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('painel.createUsuarios');
     }
 
     /**

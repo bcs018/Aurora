@@ -14,6 +14,11 @@ class HistoriaController extends Controller
         return view('site.historia');
     }
 
+    public function index()
+    {
+        return view('painel.descricaoPagHistoria');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

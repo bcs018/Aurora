@@ -37,7 +37,7 @@
                     </li>
                     @if (Auth::user()->administrador == 1)
                         <li class="nav-item">
-                            <a class="nav-link" href="painel/home.html">Painel</a>
+                            <a class="nav-link" href="{{route('painel.index')}}">Painel</a>
                         </li>
                     @endif
                     <li class="nav-item">

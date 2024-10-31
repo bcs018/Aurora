@@ -14,6 +14,11 @@ class VeneravelController extends Controller
         return view('site.veneravel');
     }
 
+    public function index()
+    {
+        return view('painel.veneravel');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

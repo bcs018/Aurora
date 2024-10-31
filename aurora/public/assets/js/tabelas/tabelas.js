@@ -22,6 +22,87 @@ $.fn.dataTable.ext.type.order['date-dd-mm-yyyy-pre'] = function(d) {
     return new Date(parts[2], parts[1] - 1, parts[0]);
 };
 
+
+
+var tableUsuarios = new DataTable('#tableUsuarios', {
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
+    },  
+    "paging": true,
+    "lengthChange": false,
+    "pagingType": 'simple_numbers',
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,   
+    order: [[0, 'asc']]
+});
+
+var tableAgenda = new DataTable('#tableAgenda', {
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
+    },  
+    "paging": true,
+    "lengthChange": false,
+    "pagingType": 'simple_numbers',
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,   
+    order: [[0, 'asc']]
+});
+
+var tableDocumentos = new DataTable('#tableDocumentos', {
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
+    },  
+    "paging": true,
+    "lengthChange": false,
+    "pagingType": 'simple_numbers',
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,   
+    order: [[0, 'asc']]
+});
+
+var tableFotos = new DataTable('#tableFotos', {
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
+    },  
+    "paging": true,
+    "lengthChange": false,
+    "pagingType": 'simple_numbers',
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,   
+    order: [[0, 'desc']]
+});
+
+var tableVeneravel = new DataTable('#tableVeneravel', {
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
+    },  
+    "paging": true,
+    "lengthChange": false,
+    "pagingType": 'simple_numbers',
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,   
+    order: [[0, 'desc']]
+});
+
+
+
+
+
+
+
+
+
+
 var tableAtualizacoes = new DataTable('#myTableAtualizacoes', {
     language: {
         url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
@@ -85,33 +166,9 @@ var tableCli = new DataTable('#myTableCli', {
     order: [[3, 'desc']]
 });
 
-var tableUsuarios = new DataTable('#myTableUsuarios', {
-    language: {
-        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
-    },  
-    "paging": true,
-    "lengthChange": false,
-    "pagingType": 'simple_numbers',
-    "ordering": true,
-    "info": true,
-    "autoWidth": false,
-    "responsive": true,   
-    order: [[3, 'asc']]
-});
 
-var tableEmpresas = new DataTable('#myTableFotos', {
-    language: {
-        url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/pt-BR.json',
-    },  
-    "paging": true,
-    "lengthChange": false,
-    "pagingType": 'simple_numbers',
-    "ordering": true,
-    "info": true,
-    "autoWidth": false,
-    "responsive": true,   
-    order: [[0, 'desc']]
-});
+
+
 
 var tableAdministradores = new DataTable('#myTableAdministradores', {
     language: {

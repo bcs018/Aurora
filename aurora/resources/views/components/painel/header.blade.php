@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel | A.R.L.S. AURORA GUAÇUANA</title>
+    <title>{{$title}}</title>
 
-    <link rel="stylesheet" href="../css/adminlte/adminlte.min.css">
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fontawesome/all.min.css">
-    <link rel="stylesheet" href="../css/select2/select2.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/adminlte/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/fontawesome/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/select2/select2.css')}}" />
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
 </head>
@@ -24,7 +24,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                     <a href="home.html" class="nav-link">Home</a>
+                     <a href="{{route('painel.index')}}" class="nav-link">Home</a>
                 </li>
             </ul>
         </nav>
@@ -32,16 +32,15 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
             <a href="../index.html" class="brand-link text-decoration-none">
-                <img src="../img/logo-circle.png" alt="A.R.L.S. AURORA GUAÇUANA" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="{{asset('storage/images/logo-circle.png')}}" alt="{{env('APP_NAME')}}" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">A.R.L.S. AURORA</span>
             </a>
-
 
             <div class="sidebar">
                 <div class="user-panel mt-3 d-flex">
                     <div class="info">
-                        <p class="d-block text-light">Nome Usuário</p> 
-                        <a href="{{route('logout-cli')}}" class="d-block text-danger text-decoration-none">Sair</a>   
+                        <p class="d-block text-light">{{Auth::user()->name}}</p> 
+                        <a href="{{route('login.logout')}}" class="d-block text-danger text-decoration-none">Sair</a>   
                     </div>
                 </div>
 
@@ -58,43 +57,43 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="agenda.html" class="nav-link">
+                                    <a href="{{route('agenda.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-calendar-days"></i>
                                         <p>Agenda</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="fotos.html" class="nav-link">
+                                    <a href="{{route('fotos.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-image"></i>
                                         <p>Fotos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="documentos.html" class="nav-link">
+                                    <a href="{{route('documentos.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-file"></i>
                                         <p>Documentos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="usuarios.html" class="nav-link">
+                                    <a href="{{route('usuarios.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-user"></i>
                                         <p>Usuários</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="descricaoPagInicial.html" class="nav-link">
+                                    <a href="{{route('descricao.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-house"></i>
                                         <p>Descrição pág inicial</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="descricaoPagHistoria.html" class="nav-link">
+                                    <a href="{{route('historia.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-file-lines"></i>
                                         <p>Descrição pág história</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="veneraveis.html" class="nav-link">
+                                    <a href="{{route('veneraveis.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-user-graduate"></i>
                                         <p>Veneráveis</p>
                                     </a>
@@ -120,26 +119,27 @@
         </footer>
     </div>
 
-    <script src="../js/jquery/jquery.min.js" ></script>
-    <script src="../js/select-menu/jquery.selected.menu.js"></script>
-    <script src="../js/select2/select2.js"></script>
-    <script src="../js/select2/select2bootstrap.js"></script>
-    <script src="../js/fontawesome/all.min.js"></script>
-    <script src="../js/popper/popper-core.min.js"></script>
-    <script src="../js/popper/popper-dom.min.js"></script>
-    <script src="../js/adminlte/adminlte.min.js"></script>
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
-    <script src="../js/checkbox-form/checkbox-form.js"></script>
+    <script src="{{asset('assets/js/jquery/jquery.min.js')}}" ></script>
+    <script src="{{asset('assets/js/select-menu/jquery.selected.menu.js')}}"></script>
+    <script src="{{asset('assets/js/select2/select2.js')}}"></script>
+    <script src="{{asset('assets/js/select2/select2bootstrap.js')}}"></script>
+    <script src="{{asset('assets/js/fontawesome/all.min.js')}}"></script>
+    <script src="{{asset('assets/js/popper/popper-core.min.js')}}"></script>
+    <script src="{{asset('assets/js/popper/popper-dom.min.js')}}"></script>
+    <script src="{{asset('assets/js/adminlte/adminlte.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/checkbox-form/checkbox-form.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script src="../js/select-tipo-enviar-atualizacao/select-tipo-enviar-atualizacao.js"></script>
-    <script src="../js/confirma-exclusao/usuarios.js"></script>
-    <script src="../js/confirma-exclusao/empresas.js"></script>
-    <script src="../js/confirma-exclusao/tipos.js"></script>
-    <script src="../js/confirma-exclusao/atualizacoes.js"></script>
-    <script src="../js/confirma-exclusao/arquivo-atualizacoes.js"></script>
-    <script src="../js/confirma-exclusao/administradores.js"></script>
+    <script src="{{asset('assets/js/select-tipo-enviar-atualizacao/select-tipo-enviar-atualizacao.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/usuarios.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/empresas.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/tipos.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/atualizacoes.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/arquivo-atualizacoes.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/administradores.js')}}"></script>
+    <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
 </body>
     
 </html>
