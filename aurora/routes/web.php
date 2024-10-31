@@ -37,5 +37,5 @@ Route::post('logar', [LoginController::class, 'store'])->name('login.logar');
 Route::get('logout', [LoginController::class, 'destroy'])->name('login.logout');
 
 Route::get('/', function () {
-    return to_route('home.index');
+    return to_route('home.indexPage');
 });

@@ -15,7 +15,7 @@ body {
 }
 /* Header */
 .navbar {
-    background-color: #343a40;
+    background-color: #06090c !important;
 }
 /* Card de Integrante */
 .card {
@@ -57,9 +57,4 @@ footer {
     color: #212529;
     padding: 50px 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-#banner {
-    height: 368px;
-    background-color: #33566e;
-    text-align: center;
 }

@@ -1,8 +1,8 @@
 <x-site.header title="HOME | {{env('APP_NAME')}}  N° 3551">
 
     <!-- Banner -->
-    <div id="banner">
-        <img src="{{asset('storage/images/banner.png')}}" alt="">
+    <div id="banner" >
+        <img src="{{asset('storage/images/banner-logo.png')}}" class="img-fluid" alt="Banner {{env('APP_NAME')}}  N° 3551">
     </div>
 
     <!-- Seção Sobre -->
