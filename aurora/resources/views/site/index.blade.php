@@ -2,7 +2,9 @@
 
     <!-- Banner -->
     <div id="banner" >
-        <img src="{{asset('storage/images/banner-logo.png')}}" class="img-fluid" alt="Banner {{env('APP_NAME')}}  N° 3551">
+        <img src="{{asset('storage/images/banner.png')}}"      class="w-100 img-fluid d-md-none" alt="Banner {{env('APP_NAME')}}  N° 3551">
+        <img src="{{asset('storage/images/banner-logo.png')}}" class="w-100 img-fluid d-none d-md-block d-xl-none" alt="Banner {{env('APP_NAME')}}  N° 3551">
+        <img src="{{asset('storage/images/banner-logo.png')}}" class="w-100 img-fluid d-none d-xl-block" alt="Banner {{env('APP_NAME')}}  N° 3551">
     </div>
 
     <!-- Seção Sobre -->
