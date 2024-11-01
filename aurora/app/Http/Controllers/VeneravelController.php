@@ -24,7 +24,7 @@ class VeneravelController extends Controller
      */
     public function create()
     {
-        //
+        return view('painel.createVeneravel');
     }
 
     /**

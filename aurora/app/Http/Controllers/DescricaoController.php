@@ -12,7 +12,7 @@ class DescricaoController extends Controller
      */
     public function index()
     {
-        return view('painel.descricaoPagInicial');
+        return view('painel.createDescricaoPagInicial');
     }
 
     /**

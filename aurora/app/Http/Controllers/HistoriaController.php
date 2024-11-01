@@ -16,7 +16,7 @@ class HistoriaController extends Controller
 
     public function index()
     {
-        return view('painel.descricaoPagHistoria');
+        return view('painel.createDescricaoPagHistoria');
     }
 
     /**
