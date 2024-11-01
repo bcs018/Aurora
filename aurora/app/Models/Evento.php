@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class Evento extends Model
 {
     protected $fillable = [
         'id',
-        'descricao',
-        'data'
+        'nome',
+        'descricao'
     ];
 }

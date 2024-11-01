@@ -24,12 +24,13 @@
 
                 <div class="card-body">
                     <form action="{{route('agenda.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Descrição</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="descricaoAgenda" id="descricaoAgenda" value=""
+                                        <input type="text" name="descricaoAgenda" id="descricaoAgenda" value="{{old('descricaoAgenda')}}"
                                             class="form-control {{ $errors->has('descricaoAgenda') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
                                         <div class="invalid-feedback">{{ $errors->first('descricaoAgenda') }} </div>
@@ -40,8 +41,8 @@
                             <div class="col-md-6">
                                 <label>Data</label>
                                 <div class="input-group ">
-                                    <input type="date" class="form-control {{ $errors->has('dateAgenda') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="dateAgenda">
-                                    <div class="invalid-feedback">{{ $errors->first('dateAgenda') }} </div>
+                                    <input type="date" class="form-control {{ $errors->has('dataAgenda') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="dataAgenda">
+                                    <div class="invalid-feedback">{{ $errors->first('dataAgenda') }} </div>
                                 </div>
                             </div>
 

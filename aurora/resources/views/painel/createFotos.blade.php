@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                     <label>Nome do evento</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="nomeEvento" id="nomeEvento" value=""
+                                        <input type="text" name="nomeEvento" id="nomeEvento" value="{{old('nomeEvento')}}"
                                             class="form-control {{ $errors->has('nomeEvento') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
                                         <div class="invalid-feedback">{{ $errors->first('nomeEvento') }} </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     <label>Descrição do evento</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="descricaoEvento" id="descricaoEvento" value=""
+                                        <input type="text" name="descricaoEvento" id="descricaoEvento" value="{{old('descricaoEvento')}}"
                                             class="form-control {{ $errors->has('descricaoEvento') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
                                         <div class="invalid-feedback">{{ $errors->first('descricaoEvento') }} </div>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AgendaRequest;
+use App\Models\Agenda;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AgendaController extends Controller
 {
@@ -33,9 +36,18 @@ class AgendaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AgendaRequest $request)
     {
-        //
+        $agenda = new Agenda();
+        $agenda->descricao = $request->input('descricaoAgenda');
+        $agenda->data = $request->input('dataAgenda');
+        $agenda->save();
+
+        Alert::alert()->success('Sucesso', 'Agenda cadastrada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('agenda.create');
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FotoRequest;
+use App\Models\Evento;
+use App\Models\Foto;
 use Illuminate\Http\Request;
 
 class FotoController extends Controller
@@ -33,9 +36,24 @@ class FotoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FotoRequest $request)
     {
-        //
+        $diretorio = '';
+
+        /**
+         * Salvar a foto aqui
+         */
+
+        $evento = new Evento();
+        $evento->nome = $request->input('nomeEvento');
+        $evento->descricao = $request->input('descricaoEvento');
+        $evento->save();
+
+        $foto = new Foto();
+        $foto->nome = $request->input('nomeEvento');
+        $foto->diretorio = $diretorio;
+        $foto->evento_id = $evento->id;
+        $foto->save();
     }
 
     /**
