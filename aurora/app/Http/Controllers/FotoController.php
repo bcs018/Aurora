@@ -6,6 +6,7 @@ use App\Http\Requests\FotoRequest;
 use App\Models\Evento;
 use App\Models\Foto;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FotoController extends Controller
 {
@@ -38,22 +39,31 @@ class FotoController extends Controller
      */
     public function store(FotoRequest $request)
     {
-        $diretorio = '';
-
-        /**
-         * Salvar a foto aqui
-         */
-
         $evento = new Evento();
         $evento->nome = $request->input('nomeEvento');
         $evento->descricao = $request->input('descricaoEvento');
         $evento->save();
 
-        $foto = new Foto();
-        $foto->nome = $request->input('nomeEvento');
-        $foto->diretorio = $diretorio;
-        $foto->evento_id = $evento->id;
-        $foto->save();
+        /**
+         * Salvar a foto aqui
+         */
+        if($request->file('fotos') != null)
+        {
+            foreach($request->file('fotos') as $arquivo)
+            {
+                $foto = new Foto();
+                $foto->nome = $request->input('nomeEvento');
+                $foto->diretorio = $arquivo->store('fotos', 'public');
+                $foto->evento_id = $evento->id;
+                $foto->save();
+            }   
+        }
+
+        Alert::alert()->success('Sucesso', 'Fotos cadastrada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('fotos.create');
     }
 
     /**

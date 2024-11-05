@@ -133,7 +133,7 @@
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script src="{{asset('assets/js/select-tipo-enviar-atualizacao/select-tipo-enviar-atualizacao.js')}}"></script>
+    <script src="{{asset('assets/js/textarea-edit/textarea-edit.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/usuarios.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/empresas.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/tipos.js')}}"></script>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -25,9 +28,21 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->input('nomeUsuario');
+        $user->email = $request->input('emailUsuario');
+        $user->sim = $request->input('simUsuario');
+        $user->administrador = (int)$request->input('administradorUsuario');
+        $user->password = ' ';
+        $user->save();
+
+        Alert::alert()->success('Sucesso', 'Usuario cadastrado com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('usuarios.create');
     }
 
     /**

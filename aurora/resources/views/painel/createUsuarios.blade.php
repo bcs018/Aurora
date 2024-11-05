@@ -24,12 +24,13 @@
 
                 <div class="card-body">
                     <form action="{{route('usuarios.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nome</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="nomeUsuario" id="nomeUsuario" value=""
+                                        <input type="text" name="nomeUsuario" id="nomeUsuario" value="{{old('nomeUsuario')}}"
                                             class="form-control {{ $errors->has('nomeUsuario') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
                                         <div class="invalid-feedback">{{ $errors->first('nomeUsuario') }} </div>
@@ -41,7 +42,7 @@
                                 <div class="form-group">
                                     <label>E-mail</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="emailUsuario" id="emailUsuario" value=""
+                                        <input type="text" name="emailUsuario" id="emailUsuario" value="{{old('emailUsuario')}}"
                                             class="form-control {{ $errors->has('emailUsuario') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1">
                                         <div class="invalid-feedback">{{ $errors->first('emailUsuario') }} </div>
@@ -53,7 +54,7 @@
                                 <div class="form-group">
                                     <label>SIM</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="simUsuario" id="simUsuario" value=""
+                                        <input type="text" name="simUsuario" id="simUsuario" value="{{old('simUsuario')}}"
                                             class="form-control {{ $errors->has('simUsuario') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1">
                                         <div class="invalid-feedback">{{ $errors->first('simUsuario') }} </div>

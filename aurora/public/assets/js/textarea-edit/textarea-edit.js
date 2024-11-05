@@ -23,10 +23,6 @@ $(async ()=>{
 
     function getTipo()
     {
-        var textoSelecionado = $('#select-tipo option:selected').text();
-
-        var saudacao = $('#saudacao').val();
-
         if (textoSelecionado == 'ACBD' || textoSelecionado == 'AVERIS')
         {
             texto  = 'Atualizar somente após PPRO- <br><br>'

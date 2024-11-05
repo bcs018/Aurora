@@ -24,6 +24,7 @@
 
                 <div class="card-body">
                     <form action="{{route('fotos.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -52,7 +53,7 @@
                             <div class="col-md-12">
                                 <label>Selecione as fotos</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotos[]">
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotos[]" multiple>
                                     <div class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">

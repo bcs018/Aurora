@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Documento;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DocumentoController extends Controller
 {
@@ -27,7 +29,16 @@ class DocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $documento = new Documento();
+        $documento->nome = $request->input('nomeDocumento');
+        $documento->diretorio = $request->file('documentos')->store('documentos', 'public');
+        $documento->save();
+
+        Alert::alert()->success('Sucesso', 'Documento cadastrada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('documentos.create');
     }
 
     /**
