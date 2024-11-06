@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('diretorio');
             $table->unsignedBigInteger('evento_id');
 
-            $table->foreign('evento_id')->references('id')->on('eventos');
+            $table->foreign('evento_id')->references('id')->on('eventos')->onDelete('cascade');
             
             $table->timestamps();
         });

@@ -8,6 +8,8 @@ use App\Models\Foto;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
+use function PHPUnit\Framework\isEmpty;
+
 class FotoController extends Controller
 {
     /**
@@ -81,7 +83,18 @@ class FotoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $foto = Foto::with('evento')->where('evento_id', $id)->get();
+        
+        if (!$foto)
+        {
+            Alert::alert()->error('Atenção', 'Foto não encontrada!')
+            ->autoclose(false)
+            ->showConfirmButton('Ok', '#005284');
+
+            return redirect()->back();
+        }
+
+        return view('painel.editFotos', ['foto' => $foto]);
     }
 
     /**
@@ -98,5 +111,10 @@ class FotoController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function destroyFoto(string $id)
+    {
+        
     }
 }

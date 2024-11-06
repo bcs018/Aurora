@@ -30,12 +30,13 @@
                                 <td>{{$agenda->descricao}}</td>
                                 <td>{{ date('d/m/Y', strtotime($agenda->data))}}</td>
                                 <td>
-                                    <a href="" class="text-decoration-none" style="color: #005284">
+                                    <a href="{{route('agenda.edit', $agenda->id)}}" class="text-decoration-none" style="color: #005284">
                                         <i class="fa-solid fa-pencil me-3"></i>
                                     </a> 
 
-                                    <form action="" class="excluir-agenda" method="post" style="all: unset !important">
-
+                                    <form action="{{route('agenda.destroy', $agenda->id)}}" method="POST" class="excluir-agenda" style="all: unset !important">
+                                        @method('DELETE')
+                                        @csrf
                                         <button class="btn p-0" type="submit" style="color: #005284">
                                             <i class="fa-solid fa-circle-xmark"></i>
                                         </button>

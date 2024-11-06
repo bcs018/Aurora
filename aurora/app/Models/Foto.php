@@ -13,7 +13,7 @@ class Foto extends Model
         'diretorio',
     ];
 
-    public function eventos()
+    public function evento()
     {
         return $this->belongsTo(Evento::class);
     }

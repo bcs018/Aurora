@@ -30,12 +30,13 @@
                                 <td>{{$evento->nome}}</td>
                                 <td>{{$evento->descricao}}</td>
                                 <td>
-                                    <a href="alterarFoto.html" class="text-decoration-none" style="color: #005284">
+                                    <a href="{{route('fotos.edit', $evento->id)}}" class="text-decoration-none" style="color: #005284">
                                         <i class="fa-solid fa-pencil me-3"></i>
                                     </a> 
 
-                                    <form action="" class="excluir-foto" method="post" style="all: unset !important">
-
+                                    <form action="{{route('fotos.update', $evento->id)}}" class="excluir-foto" method="post" style="all: unset !important">
+                                        @csrf
+                                        @method('PUT')
                                         <button class="btn p-0" type="submit" style="color: #005284">
                                             <i class="fa-solid fa-circle-xmark"></i>
                                         </button>

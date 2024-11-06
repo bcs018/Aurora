@@ -135,6 +135,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{asset('assets/js/textarea-edit/textarea-edit.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/usuarios.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/agenda.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/empresas.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/tipos.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/atualizacoes.js')}}"></script>

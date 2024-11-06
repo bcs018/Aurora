@@ -65,15 +65,45 @@ class AgendaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $agenda = Agenda::find($id);
+
+        if (!$agenda)
+        {
+            Alert::alert()->error('Atenção', 'Agenda não encontrada!')
+            ->autoclose(false)
+            ->showConfirmButton('Ok', '#005284');
+
+            return redirect()->back();
+        }
+
+        return view('painel.editAgenda', ['agenda' => $agenda]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AgendaRequest $request, string $id)
     {
-        //
+        $agenda = Agenda::find($id);
+
+        if (!$agenda)
+        {
+            Alert::alert()->error('Atenção', 'Agenda não encontrada!')
+            ->autoclose(false)
+            ->showConfirmButton('Ok', '#005284');
+
+            return redirect()->back();
+        }
+
+        $agenda->descricao = $request->input('descricaoAgenda');
+        $agenda->data = $request->input('dataAgenda');
+        $agenda->save();
+
+        Alert::alert()->success('Sucesso', 'Agenda alterada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +111,13 @@ class AgendaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $agenda = Agenda::find($id);
+        $agenda->delete();
+
+        Alert::alert()->success('Sucesso', 'Agenda excluída com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('agenda.index');
     }
 }
