@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DescricaoPagHistoriaRequest;
+use App\Models\Historia;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HistoriaController extends Controller
 {
@@ -16,7 +19,6 @@ class HistoriaController extends Controller
 
     public function index()
     {
-        return view('painel.createDescricaoPagHistoria');
     }
 
     /**
@@ -24,15 +26,32 @@ class HistoriaController extends Controller
      */
     public function create()
     {
-        //
+        $texto = Historia::find(1);
+        
+        if (!$texto)
+            $texto = ' ';
+        else 
+            $texto = $texto->conteudo;
+
+        return view('painel.createDescricaoPagHistoria', ['texto'=>$texto]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DescricaoPagHistoriaRequest $request)
     {
-        //
+        $historia = new Historia();
+        $historia->truncate();
+
+        $historia->conteudo = $request->input('descricaoHistoria');
+        $historia->save();
+
+        Alert::alert()->success('Sucesso', 'História cadastrada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('historia.create');
     }
 
     /**

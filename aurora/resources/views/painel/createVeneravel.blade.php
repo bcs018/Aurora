@@ -24,15 +24,16 @@
 
                 <div class="card-body">
                     <form action="{{route('veneraveis.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nome</label>
                                     <div class="input-group mb-3">
                                         <input type="text" name="nomeVeneravel" id="nomeVeneravel" value=""
-                                            class="form-control {{ $errors->has('titulo-atu') ? 'is-invalid' : '' }}"
+                                            class="form-control {{ $errors->has('nomeVeneravel') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
-                                        <div class="invalid-feedback"> </div>
+                                        <div class="invalid-feedback">{{ $errors->first('nomeVeneravel') }} </div>
                                     </div>
                                 </div>
                             </div>
@@ -42,9 +43,9 @@
                                     <label>Período de</label>
                                     <div class="input-group mb-3">
                                         <input type="number"  name="periodoDe" id="periodoDe" value=""
-                                            class="form-control {{ $errors->has('titulo-atu') ? 'is-invalid' : '' }}"
+                                            class="form-control {{ $errors->has('periodoDe') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
-                                        <div class="invalid-feedback"> </div>
+                                        <div class="invalid-feedback">{{ $errors->first('periodoDe') }} </div>
                                     </div>
                                 </div>
                             </div>
@@ -54,9 +55,9 @@
                                     <label>Período até</label>
                                     <div class="input-group mb-3">
                                         <input type="number" name="periodoAte" id="periodoAte" value=""
-                                            class="form-control {{ $errors->has('titulo-atu') ? 'is-invalid' : '' }}"
+                                            class="form-control {{ $errors->has('periodoAte') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
-                                        <div class="invalid-feedback"> </div>
+                                        <div class="invalid-feedback">{{ $errors->first('periodoAte') }} </div>
                                     </div>
                                 </div>
                             </div>

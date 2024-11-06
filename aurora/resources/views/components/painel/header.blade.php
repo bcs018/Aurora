@@ -81,13 +81,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('descricao.index')}}" class="nav-link">
+                                    <a href="{{route('descricao.create')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-house"></i>
                                         <p>Descrição pág inicial</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('historia.index')}}" class="nav-link">
+                                    <a href="{{route('historia.create')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-file-lines"></i>
                                         <p>Descrição pág história</p>
                                     </a>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VeneravelRequest;
+use App\Models\Veneravel;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VeneravelController extends Controller
 {
@@ -30,9 +33,20 @@ class VeneravelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VeneravelRequest $request)
     {
-        //
+        $veneravel = new Veneravel();
+        $veneravel->nome = $request->input('nomeVeneravel');
+        $veneravel->ano_inicio = $request->input('periodoDe');
+        $veneravel->ano_final = $request->input('periodoAte');
+        $veneravel->diretorio = $request->file('fotoVeneravel')->store('veneraveis', 'public');
+        $veneravel->save();
+
+        Alert::alert()->success('Sucesso', 'Venerável cadastrado com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('veneraveis.create');
     }
 
     /**

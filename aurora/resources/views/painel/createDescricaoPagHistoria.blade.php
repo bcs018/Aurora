@@ -23,17 +23,21 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('historia.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Descrição</label>
                                     <div class="input-group mb-3">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="summernote" name="descricaoHistoria" style="height: 100px"></textarea>
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="summernote" name="descricaoHistoria" style="height: 100px">
+                                                {{$texto}}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
+                                <div style="color: #dc3545">{{ $errors->first('descricaoHistoria') }} </div>
                             </div>
                         </div>
                         <button class="btn btn-success mt-3">Cadastrar</button>

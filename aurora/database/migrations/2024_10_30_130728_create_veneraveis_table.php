@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->year('ano_inicio');
             $table->year('ano_final');
+            $table->string('diretorio');
             $table->timestamps();
         });
     }
