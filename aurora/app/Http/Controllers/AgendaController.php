@@ -22,7 +22,9 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('painel.agenda');
+        $agendas = Agenda::all();
+
+        return view('painel.agenda', ['agendas' => $agendas]);
     }
 
     /**

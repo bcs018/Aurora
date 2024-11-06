@@ -25,56 +25,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Reunião às 19h</td>
-                            <td>05/11/2024</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
+                        @forelse ($agendas as $agenda)
+                            <tr>
+                                <td>{{$agenda->descricao}}</td>
+                                <td>{{ date('d/m/Y', strtotime($agenda->data))}}</td>
+                                <td>
+                                    <a href="" class="text-decoration-none" style="color: #005284">
+                                        <i class="fa-solid fa-pencil me-3"></i>
+                                    </a> 
 
-                                <form action="" class="excluir-agenda" method="post" style="all: unset !important">
+                                    <form action="" class="excluir-agenda" method="post" style="all: unset !important">
 
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Confraternização as 19h</td>
-                            <td>21/12/2024</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-agenda" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Reunião as 19h</td>
-                            <td>25/01/2025</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-agenda" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                        <button class="btn p-0" type="submit" style="color: #005284">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Não há agendas cadastradas!</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
