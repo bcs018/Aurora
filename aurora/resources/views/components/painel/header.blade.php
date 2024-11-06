@@ -31,7 +31,7 @@
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-            <a href="../index.html" class="brand-link text-decoration-none">
+            <a href="/" class="brand-link text-decoration-none">
                 <img src="{{asset('storage/images/logo-circle.png')}}" alt="{{env('APP_NAME')}}" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">A.R.L.S. AURORA</span>
             </a>

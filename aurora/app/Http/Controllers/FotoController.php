@@ -23,7 +23,9 @@ class FotoController extends Controller
      */
     public function index()
     {
-        return view('painel.fotos');
+        $eventos = Evento::all();
+
+        return view('painel.fotos', ['eventos'=>$eventos]);
     }
 
     /**

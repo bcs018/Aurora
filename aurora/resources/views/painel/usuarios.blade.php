@@ -22,67 +22,39 @@
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">SIM</th>
-                        <th scope="col">Admin</th>
+                        <th scope="col">Administrador</th>
                         <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>João Silva</td>
-                            <td>joao@example.com</td>
-                            <td>P23456</td>
-                            <td>SIM</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
+                        @forelse ($usuarios as $usuario)
+                            <tr>
+                                <td>{{$usuario->name}}</td>
+                                <td>{{$usuario->email}}</td>
+                                <td>{{$usuario->sim}}</td>
+                                <td>{{($usuario->administrador == 1) ? 'SIM' : 'NÃO'}}</td>
+                                <td>
+                                    <a href="" class="text-decoration-none" style="color: #005284">
+                                        <i class="fa-solid fa-pencil me-3"></i>
+                                    </a> 
 
-                                <form action="" class="excluir-admin" method="post" style="all: unset !important">
+                                    <form action="" class="excluir-admin" method="post" style="all: unset !important">
 
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Marcos Santos</td>
-                            <td>marcos@example.com</td>
-                            <td>P23457</td>
-                            <td>NÃO</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-admin" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Mohamed Salem</td>
-                            <td>mohamed@example.com</td>
-                            <td>P23458</td>
-                            <td>SIM</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-admin" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                        <button class="btn p-0" type="submit" style="color: #005284">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Não há usuários cadastrados!</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

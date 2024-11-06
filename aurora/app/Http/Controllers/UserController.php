@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('painel.usuarios');
+        $usuarios = User::all();
+
+        return view('painel.usuarios', ['usuarios' => $usuarios]);
     }
 
     /**

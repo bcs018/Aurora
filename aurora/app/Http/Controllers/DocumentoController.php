@@ -13,7 +13,9 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        return view('painel.documentos');
+        $documentos = Documento::all();
+
+        return view('painel.documentos', ['documentos' => $documentos]);
     }
 
     /**

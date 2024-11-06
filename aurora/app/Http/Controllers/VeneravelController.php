@@ -19,7 +19,9 @@ class VeneravelController extends Controller
 
     public function index()
     {
-        return view('painel.veneravel');
+        $veneraveis = Veneravel::all();
+
+        return view('painel.veneravel', ['veneraveis' => $veneraveis]);
     }
 
     /**

@@ -26,63 +26,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Joaquim Silva</td>
-                            <td>2021</td>
-                            <td>2022</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
+                        @forelse ($veneraveis as $veneravel)
+                            <tr>
+                                <td>{{$veneravel->nome}}</td>
+                                <td>{{$veneravel->ano_inicio}}</td>
+                                <td>{{$veneravel->ano_final}}</td>
+                                <td>
+                                    <a href="" class="text-decoration-none" style="color: #005284">
+                                        <i class="fa-solid fa-pencil me-3"></i>
+                                    </a> 
 
-                                <form action="" class="excluir-veneravel" method="post" style="all: unset !important">
+                                    <form action="" class="excluir-veneravel" method="post" style="all: unset !important">
 
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Marcos Alessandro</td>
-                            <td>2022</td>
-                            <td>2023</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-veneravel" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Paulo Costa</td>
-                            <td>2023</td>
-                            <td>2024</td>
-                            <td>
-                                <a href="" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-veneravel" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                        <button class="btn p-0" type="submit" style="color: #005284">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Não há venerável cadastrado!</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-
 </x-painel.header>

@@ -20,47 +20,35 @@
                     <thead>
                     <tr>
                         <th scope="col">Evento</th>
-                        <th scope="col">Data</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Confraternização loja</td>
-                            <td>20/12/2023</td>
-                            <td>Confraternização de natal</td>
-                            <td>
-                                <a href="alterarFoto.html" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
+                        @forelse ($eventos as $evento)
+                            <tr>
+                                <td>{{$evento->nome}}</td>
+                                <td>{{$evento->descricao}}</td>
+                                <td>
+                                    <a href="alterarFoto.html" class="text-decoration-none" style="color: #005284">
+                                        <i class="fa-solid fa-pencil me-3"></i>
+                                    </a> 
 
-                                <form action="" class="excluir-foto" method="post" style="all: unset !important">
+                                    <form action="" class="excluir-foto" method="post" style="all: unset !important">
 
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Reunião</td>
-                            <td>12/11/2024</td>
-                            <td>Reunião</td>
-                            <td>
-                                <a href="alterarFoto.html" class="text-decoration-none" style="color: #005284">
-                                    <i class="fa-solid fa-pencil me-3"></i>
-                                </a> 
-
-                                <form action="" class="excluir-foto" method="post" style="all: unset !important">
-
-                                    <button class="btn p-0" type="submit" style="color: #005284">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                        <button class="btn p-0" type="submit" style="color: #005284">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Não há eventos cadastrados!</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
