@@ -21,7 +21,7 @@
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
-                        <th scope="col">SIM</th>
+                        <th scope="col">CIM</th>
                         <th scope="col">Administrador</th>
                         <th scope="col">Ações</th>
                     </tr>
@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{$usuario->name}}</td>
                                 <td>{{$usuario->email}}</td>
-                                <td>{{$usuario->sim}}</td>
+                                <td>{{$usuario->cim}}</td>
                                 <td>{{($usuario->administrador == 1) ? 'SIM' : 'NÃO'}}</td>
                                 <td>
                                     <a href="" class="text-decoration-none" style="color: #005284">

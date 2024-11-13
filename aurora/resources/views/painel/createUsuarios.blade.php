@@ -52,15 +52,15 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>SIM</label>
+                                    <label>CIM</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="simUsuario" id="simUsuario" value="{{old('simUsuario')}}"
-                                            class="form-control {{ $errors->has('simUsuario') ? 'is-invalid' : '' }}"
+                                        <input type="text" name="cimUsuario" id="cimUsuario" value="{{old('cimUsuario')}}"
+                                            class="form-control {{ $errors->has('cimUsuario') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1">
-                                        <div class="invalid-feedback">{{ $errors->first('simUsuario') }} </div>
+                                        <div class="invalid-feedback">{{ $errors->first('cimUsuario') }} </div>
                                     </div>
                                     <div id="arquivosHelp" class="form-text mb-4">
-                                        <strong>DICA: </strong>Este código SIM será o login do usuário.
+                                        <strong>DICA: </strong>Este código CIM será o login do usuário.
                                     </div>
                                 </div>
                             </div>

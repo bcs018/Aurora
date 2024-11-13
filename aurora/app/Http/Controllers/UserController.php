@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->input('nomeUsuario');
         $user->email = $request->input('emailUsuario');
-        $user->sim = $request->input('simUsuario');
+        $user->cim = $request->input('cimUsuario');
         $user->administrador = (int)$request->input('administradorUsuario');
         $user->password = ' ';
         $user->save();

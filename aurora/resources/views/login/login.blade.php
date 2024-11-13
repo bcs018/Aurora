@@ -47,8 +47,8 @@
         <form method="POST" action="{{route('login.logar')}}">
             @csrf
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="sim" name="sim" placeholder="Login" value="{{old('sim')}}">
-                <label for="sim">SIM</label>
+                <input type="text" class="form-control" id="cim" name="cim" placeholder="Login" value="{{old('cim')}}">
+                <label for="cim">CIM</label>
             </div>
 
             <div class="form-floating mb-3">
