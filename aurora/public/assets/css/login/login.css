@@ -1,0 +1,20 @@
+body {
+    background: linear-gradient(to top, #FFF, #abaeb4);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.logo img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}

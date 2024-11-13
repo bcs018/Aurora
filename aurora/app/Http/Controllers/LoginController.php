@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,7 @@ class LoginController extends Controller
         return view('login.login');
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
         if (Auth::attempt($request->only('cim', 'password')))
             return to_route('home.indexPage');
