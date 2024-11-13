@@ -34,9 +34,9 @@
                                         <i class="fa-solid fa-pencil me-3"></i>
                                     </a> 
 
-                                    <form action="{{route('fotos.update', $evento->id)}}" class="excluir-foto" method="post" style="all: unset !important">
+                                    <form action="{{route('fotos.destroy', $evento->id)}}" class="excluir-evento" method="post" style="all: unset !important">
                                         @csrf
-                                        @method('PUT')
+                                        @method('DELETE')
                                         <button class="btn p-0" type="submit" style="color: #005284">
                                             <i class="fa-solid fa-circle-xmark"></i>
                                         </button>

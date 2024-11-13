@@ -32,6 +32,8 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
         Route::resource('descricao' , DescricaoController::class);
         Route::resource('historia'  , HistoriaController::class);
         Route::resource('documentos', DocumentoController::class);
+
+        Route::delete('excluir-foto/{id}', [FotoController::class, 'destroyFoto'])->name('fotos.destroyFoto');
     });
 
 });

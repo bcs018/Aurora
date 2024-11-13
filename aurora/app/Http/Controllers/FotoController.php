@@ -6,6 +6,7 @@ use App\Http\Requests\FotoRequest;
 use App\Models\Evento;
 use App\Models\Foto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use function PHPUnit\Framework\isEmpty;
@@ -100,9 +101,46 @@ class FotoController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    public function updateFoto(Request $request, string $id)
+    {
+        
+    }
+
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+                'nomeEvento'      => 'required',
+                'descricaoEvento' => 'required'
+            ],
+            [
+                'nomeEvento.required'      => 'O campo Nome do evento é obrigatório',
+                'descricaoEvento.required' => 'O campo Descrição do evento é obrigatório'
+            ]
+        );
+
+        $evento = Evento::find($id);
+        $evento->nome = $request->input('nomeEvento');
+        $evento->descricao = $request->input('descricaoEvento');
+        $evento->save();
+
+        if($request->file('fotos') != null)
+        {
+            foreach($request->file('fotos') as $arquivo)
+            {
+                $foto = new Foto();
+                $foto->nome = $request->input('nomeEvento');
+                $foto->diretorio = $arquivo->store('fotos', 'public');
+                $foto->evento_id = $id;
+                $foto->save();
+            }   
+        }
+
+        Alert::alert()->success('Sucesso', 'Fotos alterada com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('fotos.edit', $id);
     }
 
     /**
@@ -110,11 +148,33 @@ class FotoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fotos = Foto::where('evento_id', $id)->get();
+
+        foreach ($fotos as $foto)
+            Storage::disk('public')->delete($foto->diretorio);
+
+        $evento = Evento::find($id);
+        $evento->delete();
+
+        Alert::alert()->success('Sucesso', 'Evento excluído com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return redirect()->back();
     }
 
     public function destroyFoto(string $id)
     {
+        $foto = Foto::find($id);
         
+        Storage::disk('public')->delete($foto->diretorio);
+
+        $foto->delete();
+        
+        Alert::alert()->success('Sucesso', 'Fotos excluída com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return redirect()->back();
     }
 }

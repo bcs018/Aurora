@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('fotos.update', $foto[0]->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('fotos.update', $foto[0]->evento->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -80,7 +80,13 @@
                             <img src="{{asset('storage/'.$f->diretorio)}}" class="card-img-top" alt="{{$f->nome}}" style="height: 200px; object-fit: cover;">
                             <div class="card-body d-flex flex-column" style="flex: 1;">
                                 <div class="">
-                                    <a href="" class="btn btn-danger">Excluir</a>
+                                    <form action="{{route('fotos.destroyFoto', $f->id)}}" class="excluir-foto" method="post" style="all: unset !important">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit" >
+                                            Excluir foto
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
