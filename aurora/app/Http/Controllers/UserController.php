@@ -65,7 +65,7 @@ class UserController extends Controller
         $user->password = ' ';
         $user->save();
 
-        Alert::alert()->success('Sucesso', 'Usuario cadastrado com sucesso!')
+        Alert::alert()->success('Sucesso', 'Usuário cadastrado com sucesso!')
         ->autoclose(false)
         ->showConfirmButton('Ok', '#005284');
 

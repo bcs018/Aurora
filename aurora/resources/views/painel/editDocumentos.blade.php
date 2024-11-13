@@ -1,4 +1,4 @@
-<x-painel.header title="CADASTRAR DOCUMENTOS | {{env('APP_NAME')}}">
+<x-painel.header title="EDITAR DOCUMENTOS | {{env('APP_NAME')}}">
 
     <section class="content-header">
         <div class="container-fluid">

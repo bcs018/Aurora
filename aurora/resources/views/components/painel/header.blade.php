@@ -136,14 +136,10 @@
     <script src="{{asset('assets/js/textarea-edit/textarea-edit.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/usuario.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/agenda.js')}}"></script>
-    <script src="{{asset('assets/js/confirma-exclusao/empresas.js')}}"></script>
-    <script src="{{asset('assets/js/confirma-exclusao/tipos.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/documento.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/foto.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/evento.js')}}"></script>
-    <script src="{{asset('assets/js/confirma-exclusao/atualizacoes.js')}}"></script>
-    <script src="{{asset('assets/js/confirma-exclusao/arquivo-atualizacoes.js')}}"></script>
-    <script src="{{asset('assets/js/confirma-exclusao/administradores.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/veneravel.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
 </body>
     
