@@ -23,8 +23,8 @@ class UserRequest extends FormRequest
     {
         return [
             'nomeUsuario'  => 'required',
-            'emailUsuario' => 'required|email|unique:users,email',
-            'cimUsuario'   => 'required|unique:users,cim',
+            'emailUsuario' => 'required|email',
+            'cimUsuario'   => 'required',
         ];
     }
 
@@ -33,9 +33,7 @@ class UserRequest extends FormRequest
         return [
             'nomeUsuario.required'  => 'O campo Nome é obrigatório',
             'emailUsuario.required' => 'O campo E-mail é obrigatório',
-            'emailUsuario.unique'   => 'Já existe este E-mail cadastrado, informe outro!',
             'cimUsuario.required'   => 'O campo CIM é obrigatório',
-            'cimUsuario.unique'     => 'Já existe este CIM cadastrado, informe outro!',
         ];
     }
 }

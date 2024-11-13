@@ -34,12 +34,13 @@
                                 <td>{{$usuario->cim}}</td>
                                 <td>{{($usuario->administrador == 1) ? 'SIM' : 'NÃO'}}</td>
                                 <td>
-                                    <a href="" class="text-decoration-none" style="color: #005284">
+                                    <a href="{{route('usuarios.edit', $usuario->id)}}" class="text-decoration-none" style="color: #005284">
                                         <i class="fa-solid fa-pencil me-3"></i>
                                     </a> 
 
-                                    <form action="" class="excluir-admin" method="post" style="all: unset !important">
-
+                                    <form action="{{route('usuarios.destroy', $usuario->id)}}" class="excluir-usuario" method="post" style="all: unset !important">
+                                        @csrf
+                                        @method('DELETE')
                                         <button class="btn p-0" type="submit" style="color: #005284">
                                             <i class="fa-solid fa-circle-xmark"></i>
                                         </button>
