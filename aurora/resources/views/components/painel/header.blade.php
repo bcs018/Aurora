@@ -138,6 +138,7 @@
     <script src="{{asset('assets/js/confirma-exclusao/agenda.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/empresas.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/tipos.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/documento.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/foto.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/evento.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/atualizacoes.js')}}"></script>

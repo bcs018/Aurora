@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Cadastrar documentos</h1>
+                    <h1>Editar documentos</h1>
                 </div>
             </div>
         </div>
@@ -23,14 +23,15 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('documentos.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('documentos.update', $documento->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nome do documento</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="nomeDocumento" id="nomeDocumento" value="{{old('nomeDocumento')}}"
+                                        <input type="text" name="nomeDocumento" id="nomeDocumento" value="{{$documento->nome}}"
                                             class="form-control {{ $errors->has('nomeDocumento') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
                                         <div class="invalid-feedback">{{ $errors->first('nomeDocumento') }} </div>
@@ -39,7 +40,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione o documento</label>
+                                <label>Selecione o novo documento</label>
                                 <div class="input-group ">
                                     <input type="file" class="form-control {{ $errors->has('documentos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="documentos">
                                     <div class="invalid-feedback">{{ $errors->first('documentos') }} </div>
@@ -47,7 +48,7 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-success mt-3">Cadastrar</button>
+                        <button class="btn btn-success mt-3">Alterar</button>
                     </form>
                 </div>
             </div>

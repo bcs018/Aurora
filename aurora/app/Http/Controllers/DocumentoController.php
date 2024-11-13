@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Documento;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentoController extends Controller
 {
@@ -31,6 +32,17 @@ class DocumentoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [ 
+                'nomeDocumento' => 'required',
+                'documentos'    => 'required'
+            ],
+            [ 
+                'nomeDocumento.required' => 'O campo Nome do documento é obrigatório' ,
+                'documentos.required' => 'O anexo do documento é obrigatório' 
+            ]
+        );
+
         $documento = new Documento();
         $documento->nome = $request->input('nomeDocumento');
         $documento->diretorio = $request->file('documentos')->store('documentos', 'public');
@@ -56,7 +68,9 @@ class DocumentoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $documento = Documento::find($id);
+
+        return view('painel.editDocumentos', ['documento' => $documento]);
     }
 
     /**
@@ -64,7 +78,29 @@ class DocumentoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [ 'nomeDocumento'       => 'required' ],
+            [ 'nomeDocumento.required' => 'O campo Nome do documento é obrigatório' ]
+        );
+
+        $documento = Documento::find($id);
+
+        if($request->file('documentos') != null)
+        {
+            Storage::disk('public')->delete($documento->diretorio);
+
+            $documento->diretorio = $request->file('documentos')->store('documentos', 'public');
+        }
+
+        $documento->nome = $request->input('nomeDocumento');
+
+        $documento->save();
+
+        Alert::alert()->success('Sucesso', 'Documento alterado com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('documentos.edit', $id);
     }
 
     /**
@@ -72,6 +108,16 @@ class DocumentoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $documento = Documento::find($id);
+
+        Storage::disk('public')->delete($documento->diretorio);
+
+        $documento->delete();
+
+        Alert::alert()->success('Sucesso', 'Documento excluído com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return redirect()->back();
     }
 }
