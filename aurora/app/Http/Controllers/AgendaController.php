@@ -14,7 +14,9 @@ class AgendaController extends Controller
      */
     public function indexPage()
     {
-        return view('site.agenda');
+        $agendas = Agenda::where('data', '>=', date('Y-m-d'))->orderBy('data')->get();
+
+        return view('site.agenda', ['agendas' => $agendas]);
     }
 
     /**

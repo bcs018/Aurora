@@ -14,11 +14,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\RedirectIdNotAdmin;
 
 Route::middleware(RedirectIfAuthenticated::class)->group(function(){
-    Route::get('veneraveis', [VeneravelController::class, 'indexPage'])->name('veneraveis.indexPage');
-    Route::get('agenda'    , [AgendaController::class   , 'indexPage'])->name('agenda.indexPage');
-    Route::get('fotos'     , [FotoController::class     , 'indexPage'])->name('fotos.indexPage');
-    Route::get('historia'  , [HistoriaController::class , 'indexPage'])->name('historia.indexPage');
-    Route::get('home'      , [HomeController::class     , 'indexPage'])->name('home.indexPage');
+    Route::get('veneraveis'        , [VeneravelController::class, 'indexPage'])->name('veneraveis.indexPage');
+    Route::get('agenda'            , [AgendaController::class   , 'indexPage'])->name('agenda.indexPage');
+    Route::get('fotos'             , [FotoController::class     , 'indexPage'])->name('fotos.indexPage');
+    Route::get('evento/{id}/fotos' , [FotoController::class     , 'listaFotos'])->name('fotos.listaFotos');
+    Route::get('historia'          , [HistoriaController::class , 'indexPage'])->name('historia.indexPage');
+    Route::get('home'              , [HomeController::class     , 'indexPage'])->name('home.indexPage');
 
     Route::prefix('painel')->middleware(RedirectIdNotAdmin::class)->group(function(){
         Route::get('/', function(){

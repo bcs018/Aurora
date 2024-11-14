@@ -13,42 +13,25 @@
 
     <div class="container mt-5">
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Card 1 -->
-        <div class="col">
-          <div class="card text-center p-4 mb-5">
-            <img
-              src="https://img.freepik.com/fotos-gratis/retrato-de-jovem-feliz-sorrindo-contra-o-espaco-em-branco_58466-12722.jpg"
-              alt="Integrante 1" class="card-img-top mx-auto">
-            <div class="card-body">
-              <h5 class="card-title">Joaquim Silva</h5>
-              <p class="card-text">2021 - 2022</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="col">
-          <div class="card text-center p-4 mb-5">
-            <img src="https://img.freepik.com/psd-gratuitas/homem-expressivo-gesticulando_23-2150198787.jpg"
-              alt="Integrante 2" class="card-img-top mx-auto">
-            <div class="card-body">
-              <h5 class="card-title">Marcos Alessandro</h5>
-              <p class="card-text">2022 - 2023</p>
+        @forelse ($veneraveis as $veneravel)
+            <div class="col">
+                <div class="card text-center p-4 mb-5">
+                <img
+                    src="{{asset('storage/'.$veneravel->diretorio)}}"
+                    alt="Integrante 1" class="card-img-top mx-auto">
+                <div class="card-body">
+                    <h5 class="card-title">{{$veneravel->nome}}</h5>
+                    <p class="card-text">{{$veneravel->ano_inicio}} - {{$veneravel->ano_final}}</p>
+                </div>
+                </div>
             </div>
-          </div>
-        </div>
+        @empty
+            <div class="container text-center">
+                <p class="text-center">Não há Veneráveis cadastrados.</p>
+            </div>
+        @endforelse
 
-        <!-- Card 3 -->
-        <div class="col">
-          <div class="card text-center p-4 mb-5">
-            <img src="https://img.freepik.com/psd-gratuitas/pessoa-comemorando-sua-orientacao-sexual_23-2150115662.jpg"
-              alt="Integrante 3" class="card-img-top mx-auto">
-            <div class="card-body">
-              <h5 class="card-title">Paulo Costa</h5>
-              <p class="card-text">2023 - 2024</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

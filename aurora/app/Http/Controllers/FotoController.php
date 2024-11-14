@@ -18,7 +18,16 @@ class FotoController extends Controller
      */
     public function indexPage()
     {
-        return view('site.fotos');
+        $eventos = Evento::orderBy('id', 'DESC')->get();
+
+        return view('site.fotos', ['eventos' => $eventos]);
+    }
+
+    public function listaFotos(string $id)
+    {
+        $fotos = Foto::with('evento')->where('evento_id', $id)->get();
+
+        return view('site.listaFotos', ['fotos' => $fotos]);
     }
 
     /**

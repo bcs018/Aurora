@@ -14,7 +14,14 @@ class HistoriaController extends Controller
      */
     public function indexPage()
     {
-        return view('site.historia');
+        $texto = Historia::find(1);
+
+        if (!$texto)
+            $texto = ' ';
+        else 
+            $texto = $texto->conteudo;
+
+        return view('site.historia', ['texto'=>$texto]);
     }
 
     public function index()

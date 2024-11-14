@@ -59,6 +59,7 @@
     </footer>
 
     <script src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/fotos-carrosel-modal/fotos-carrosel.js') }}"></script>
 </body>
 
 </html>
