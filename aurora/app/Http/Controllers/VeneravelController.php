@@ -78,14 +78,18 @@ class VeneravelController extends Controller
         $request->validate(
             [ 
                 'nomeVeneravel' => 'required',
-                'periodoDe'     => 'required',
-                'periodoAte'   => 'required' 
-            ],
+                'periodoDe'     => 'required|integer|between:1900,' . (date('Y')+1),
+                'periodoAte'    => 'required|integer|between:1900,' . (date('Y')+1),
+                ],
             [ 
-                'nomeVeneravel.required' => 'O campo Nome é obrigatório',
-                'periodoDe.required'     => 'O campo Período de é obrigatório', 
-                'periodoAte.required'   => 'O campo Período até é obrigatório' 
-            ]
+                'nomeVeneravel.required' => 'O campo Nome é obrigatório.',
+                'periodoDe.required'     => 'O campo Período de é obrigatório.',
+                'periodoDe.between'      => 'O campo Período de deve estar entre :min e :max.',
+                'periodoDe.integer'      => 'O campo Período de deve ser inteiro.',
+                'periodoAte.required'    => 'O campo Período até é obrigatório.',
+                'periodoAte.between'     => 'O campo Período até deve estar entre :min e :max.',
+                'periodoAte.integer'     => 'O campo Período até deve ser inteiro.',
+                ]
         );
 
         $veneravel = Veneravel::find($id);

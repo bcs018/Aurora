@@ -45,7 +45,7 @@
             <button type="submit" class="btn btn-dark w-100">Entrar</button>
 
             <p class="mt-3 text-center">
-                <a href="#">Esqueceu a senha?</a>
+                <a href="#">Esqueci a senha</a>
             </p>
         </form>
     </div>
