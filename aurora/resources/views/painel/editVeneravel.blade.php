@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <label>Selecione a nova foto do Venerável</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotoVeneravel') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotoVeneravel">
+                                    <input type="file" class="form-control {{ $errors->has('fotoVeneravel') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotoVeneravel" accept="image/jpeg, image/jpg, image/png">
                                     <div class="invalid-feedback">{{ $errors->first('fotoVeneravel') }} </div>
                                 </div>
                             </div>
