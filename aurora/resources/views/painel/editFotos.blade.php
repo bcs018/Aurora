@@ -54,7 +54,7 @@
                             <div class="col-md-12">
                                 <label>Selecione as novas fotos</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotos[]" multiple>
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
                                     <div class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">

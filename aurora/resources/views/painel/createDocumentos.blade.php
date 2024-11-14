@@ -39,9 +39,9 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione o documento</label>
+                                <label>Selecione o documento em PDF</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('documentos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="documentos">
+                                    <input type="file" class="form-control {{ $errors->has('documentos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="documentos" accept="application/pdf">
                                     <div class="invalid-feedback">{{ $errors->first('documentos') }} </div>
                                 </div>
                             </div>
