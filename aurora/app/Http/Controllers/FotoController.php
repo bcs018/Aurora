@@ -56,6 +56,7 @@ class FotoController extends Controller
         $evento = new Evento();
         $evento->nome = $request->input('nomeEvento');
         $evento->descricao = $request->input('descricaoEvento');
+        $evento->capa = ' ';
         $evento->save();
 
         /**
@@ -65,13 +66,19 @@ class FotoController extends Controller
         {
             foreach($request->file('fotos') as $arquivo)
             {
+                $diretorio = $arquivo->store('fotos', 'public');
+
                 $foto = new Foto();
                 $foto->nome = $request->input('nomeEvento');
-                $foto->diretorio = $arquivo->store('fotos', 'public');
+                $foto->diretorio = $diretorio;
                 $foto->evento_id = $evento->id;
                 $foto->save();
             }   
         }
+
+        $evento = Evento::find($evento->id);
+        $evento->capa = $diretorio;
+        $evento->save();
 
         Alert::alert()->success('Sucesso', 'Fotos cadastrada com sucesso!')
         ->autoclose(false)

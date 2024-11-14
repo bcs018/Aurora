@@ -51,9 +51,9 @@
             <h2 class="text-center mb-5">Últimos eventos</h2>
             <div class="row justify-content-center">
                 @forelse ($eventos as $evento)
-                    <div class="col-md-4 album-card mb-2">
+                    <div class="col-md-4 album-card mb-5">
                         <div class="card d-flex flex-column" style="height: 100%;">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5db9a570d2e92960a6db994f/2caa3c25-c67c-43af-8374-16ca4115db2d/DMS_1644.jpg" class="" alt="{{$evento->nome}}" style="height: 200px; object-fit: cover;">
+                            <img src="{{asset('storage/'.$evento->capa)}}" class="" alt="{{$evento->nome}}" style="height: 200px; object-fit: cover;">
                             <div class="card-body d-flex flex-column" style="flex: 1;">
                             <h5 class="card-title">{{$evento->nome}}</h5>
                             <p class="card-text">{{$evento->descricao}}</p>

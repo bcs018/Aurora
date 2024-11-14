@@ -5,13 +5,13 @@
             <h1 class="mb-5">Fotos</h1>
         </div>
 
-        <section id="albuns" class="my-5">
+        <section id="albuns" class="my-5 pt-5">
             <div class="container">
                 <div class="row">
                     @forelse ($eventos as $evento)
-                        <div class="col-md-4 album-card mb-2">
-                            <div class="card d-flex flex-column" style="height: 100%;">
-                                <img src="https://images.squarespace-cdn.com/content/v1/5db9a570d2e92960a6db994f/2caa3c25-c67c-43af-8374-16ca4115db2d/DMS_1644.jpg"
+                        <div class="col-md-4 album-card mb-5">
+                            <div class="card d-flex flex-column" style="height: 100%; border: #c9caca 1px solid;">
+                                <img src="{{asset('storage/'.$evento->capa)}}"
                                     alt="{{$evento->nome}}" style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column" style="flex: 1;">
                                     <a class="text-dark text-decoration-none" href="{{route('fotos.listaFotos', $evento->id)}}">

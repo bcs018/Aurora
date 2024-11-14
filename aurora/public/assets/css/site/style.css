@@ -62,14 +62,14 @@ footer {
     transition: transform 0.3s;
 }
 .album-card:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 /* Estilo para as imagens do álbum */
 .album-img {
-  height: 200px;
-  /* Altura fixa */
-  object-fit: cover;
-  /* Para manter a proporção */
-  width: 100%;
-  /* Largura total */
+    /* Altura fixa */
+    height: 200px;
+    /* Para manter a proporção */
+    object-fit: cover;
+    /* Largura total */
+    width: 100%;
 }
