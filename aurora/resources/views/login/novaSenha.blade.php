@@ -1,5 +1,5 @@
-<x-login.header title="LOGIN ">
-
+<x-login.header title="NOVA SENHA ">
+    
     <div class="login-container ">
         <div class="text-center">
             <h3 class="mb-4">{{ env('APP_NAME') }} Nº 3551</h3>
@@ -7,19 +7,19 @@
                 <img src="{{asset('storage/images/logo-circles.png')}}" alt="Logo {{ env('APP_NAME') }}">
             </div>
 
-            <h3 class="mb-4">Login</h3>
+            <h3 class="mb-4">Insira a nova senha</h3>
         </div>
 
-        <form method="POST" action="{{route('login.logar')}}">
+        <form method="POST" action="{{route('login.trocarSenha', $token)}}">
             @csrf
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="cim" name="cim" placeholder="CIM" value="{{old('cim')}}">
-                <label for="cim">CIM</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Nova Senha" value="">
+                <label for="password">Informe a nova Senha</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
-                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="passwordConfirma" name="passwordConfirma" placeholder="Confirme a nova Senha" value="">
+                <label for="passwordConfirma">Confirme a nova Senha</label>
             </div>
 
             @if ($errors->any())
@@ -37,12 +37,12 @@
                     {!!session('success')!!}
                 </div>
             @endif
+            
+            <button type="submit" class="btn btn-dark w-100">Alterar senha</button>
 
-            <button type="submit" class="btn btn-dark w-100">Entrar</button>
-
-            <p class="mt-3 text-center">
-                <a href="{{route('login.solicitarTrocaSenhaView')}}">Esqueci a senha</a>
-            </p>
+            <div class="text-center mt-3">
+                <a href="{{route('login.login')}}">Fazer login</a>
+            </div>
         </form>
     </div>
 

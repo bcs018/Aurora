@@ -39,10 +39,20 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
 
 });
 
-Route::get('login' , [LoginController::class, 'index'])->name('login.login');
-Route::post('logar', [LoginController::class, 'store'])->name('login.logar');
-Route::get('logout', [LoginController::class, 'destroy'])->name('login.logout');
+Route::get('login'                 , [LoginController::class, 'index'])->name('login.login');
+Route::post('logar'                , [LoginController::class, 'store'])->name('login.logar');
+Route::get('logout'                , [LoginController::class, 'destroy'])->name('login.logout');
+Route::get('solicitar-troca-senha' , [LoginController::class, 'solicitarTrocarSenha'])->name('login.solicitarTrocaSenhaView');
+Route::get('nova-senha/{token}'    , [LoginController::class, 'novaSenha'])->name('login.novaSenha');
+Route::post('solicitar-troca-senha', [LoginController::class, 'solicitarTrocaSenha'])->name('login.solicitarTrocaSenhaPost');
+Route::post('trocar-senha/{token}' , [LoginController::class, 'trocarSenha'])->name('login.trocarSenha');
+
 
 Route::get('/', function () {
     return to_route('home.indexPage');
+});
+
+Route::get('time', function(){
+    // date_default_timezone_set('America/Sao_Paulo');
+    echo date_default_timezone_get();
 });
