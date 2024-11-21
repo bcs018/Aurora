@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('diretorio');
+            $table->string('tipo'); // Tipo do documento "DOC" (documento) ou "LIV" (Livro)
             $table->timestamps();
         });
     }

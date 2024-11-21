@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $descricao  = Descricao::find(1);
         $eventos    = Evento::orderBy('id', 'DESC')->limit(6)->get();
-        $documentos = Documento::all();
+        $documentos = Documento::where('tipo', 'DOC')->get();
 
         if (!$descricao)
             $descricao = ' ';

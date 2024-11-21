@@ -87,6 +87,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{route('livros.index')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-book"></i>
+                                        <p>Livros</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{route('historia.create')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-file-lines"></i>
                                         <p>Descrição pág história</p>

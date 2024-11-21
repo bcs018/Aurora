@@ -14,7 +14,7 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        $documentos = Documento::all();
+        $documentos = Documento::where('tipo', 'DOC')->get();
 
         return view('painel.documentos', ['documentos' => $documentos]);
     }
@@ -46,9 +46,10 @@ class DocumentoController extends Controller
         $documento = new Documento();
         $documento->nome = $request->input('nomeDocumento');
         $documento->diretorio = $request->file('documentos')->store('documentos', 'public');
+        $documento->tipo = 'DOC';
         $documento->save();
 
-        Alert::alert()->success('Sucesso', 'Documento cadastrada com sucesso!')
+        Alert::alert()->success('Sucesso', 'Documento cadastrado com sucesso!')
         ->autoclose(false)
         ->showConfirmButton('Ok', '#005284');
 
