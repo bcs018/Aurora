@@ -30,7 +30,7 @@
                         </div>
                     @empty
                         <div>
-                            <p class="text-center">Não há eventos cadastradas.</p>
+                            <p class="text-center">Não há fotos cadastradas.</p>
                         </div>
                     @endforelse
                 </div>
