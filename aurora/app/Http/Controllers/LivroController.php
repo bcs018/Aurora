@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Documento;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class LivroController extends Controller
 {
@@ -68,7 +69,9 @@ class LivroController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $livro = Documento::find($id);
+
+        return view('painel.editLivros', ['livro' => $livro]);
     }
 
     /**
@@ -76,7 +79,29 @@ class LivroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [ 'nomeLivro'          => 'required' ],
+            [ 'nomeLivro.required' => 'O campo Nome do livro é obrigatório' ]
+        );
+
+        $livro = Documento::find($id);
+
+        if($request->file('livros') != null)
+        {
+            Storage::disk('public')->delete($livro->diretorio);
+
+            $livro->diretorio = $request->file('livros')->store('livros', 'public');
+        }
+
+        $livro->nome = $request->input('nomeLivro');
+
+        $livro->save();
+
+        Alert::alert()->success('Sucesso', 'Livro alterado com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return to_route('documentos.edit', $id);
     }
 
     /**
@@ -84,6 +109,16 @@ class LivroController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $livro = Documento::find($id);
+
+        Storage::disk('public')->delete($livro->diretorio);
+
+        $livro->delete();
+
+        Alert::alert()->success('Sucesso', 'Livro excluído com sucesso!')
+        ->autoclose(false)
+        ->showConfirmButton('Ok', '#005284');
+
+        return redirect()->back();
     }
 }

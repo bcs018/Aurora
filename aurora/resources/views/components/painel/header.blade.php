@@ -63,21 +63,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('fotos.index')}}" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-image"></i>
-                                        <p>Fotos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('documentos.index')}}" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-file"></i>
-                                        <p>Documentos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('usuarios.index')}}" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-user"></i>
-                                        <p>Usuários</p>
+                                    <a href="{{route('historia.create')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-file-lines"></i>
+                                        <p>Descrição pág história</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -87,15 +75,27 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{route('documentos.index')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-file"></i>
+                                        <p>Documentos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('fotos.index')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-image"></i>
+                                        <p>Fotos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{route('livros.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-book"></i>
                                         <p>Livros</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('historia.create')}}" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-file-lines"></i>
-                                        <p>Descrição pág história</p>
+                                    <a href="{{route('usuarios.index')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-user"></i>
+                                        <p>Usuários</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -146,6 +146,7 @@
     <script src="{{asset('assets/js/confirma-exclusao/foto.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/evento.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/veneravel.js')}}"></script>
+    <script src="{{asset('assets/js/confirma-exclusao/livro.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
 </body>
     

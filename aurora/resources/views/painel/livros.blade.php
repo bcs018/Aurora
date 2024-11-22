@@ -30,11 +30,11 @@
                                 <td>{{$livros->nome}}</td>
                                 <td>{{date('d/m/Y', strtotime($livros->created_at))}}</td>
                                 <td>
-                                    <a href="{{route('documentos.edit', $livros->id)}}" class="text-decoration-none" style="color: #005284">
+                                    <a href="{{route('livros.edit', $livros->id)}}" class="text-decoration-none" style="color: #005284">
                                         <i class="fa-solid fa-pencil me-3"></i>
                                     </a> 
 
-                                    <form action="{{route('documentos.destroy', $livros->id)}}" class="excluir-documento" method="post" style="all: unset !important">
+                                    <form action="{{route('livros.destroy', $livros->id)}}" class="excluir-livro" method="post" style="all: unset !important">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn p-0" type="submit" style="color: #005284">

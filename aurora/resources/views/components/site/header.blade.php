@@ -14,7 +14,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{route('home.indexPage')}}">{{ env('APP_NAME') }}</a> 
+            <a class="navbar-brand" href="{{route('home.indexPage')}}">{{ env('APP_NAME') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,6 +38,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('agenda.indexPage')}}">Agenda</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Biblioteca
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Documentos</a></li>
+                            <li><a class="dropdown-item" href="#">Livros</a></li>
+                        </ul>
+                    </li>
                     @if (Auth::user()->administrador == 1)
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('painel.index')}}">Painel</a>
@@ -50,6 +59,7 @@
             </div>
         </div>
     </nav>
+    
 
     {{ $slot }}
 
@@ -61,7 +71,7 @@
                 Silva</a></p>
     </footer>
 
-    <script src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/fotos-carrosel-modal/fotos-carrosel.js') }}"></script>
 </body>
 
