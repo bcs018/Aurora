@@ -19,6 +19,20 @@ class DocumentoController extends Controller
         return view('painel.documentos', ['documentos' => $documentos]);
     }
 
+    public function listaDocumentos()
+    {
+        $documentos = Documento::where('tipo', 'DOC')->get();
+
+        return view('site.documentos', ['documentos' => $documentos]);
+    }
+
+    public function listaLivros()
+    {
+        $livros = Documento::where('tipo', 'LIV')->get();
+
+        return view('site.livros', ['livros' => $livros]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

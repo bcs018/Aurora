@@ -14,7 +14,8 @@ class HomeController extends Controller
     {
         $descricao  = Descricao::find(1);
         $eventos    = Evento::orderBy('id', 'DESC')->limit(6)->get();
-        $documentos = Documento::where('tipo', 'DOC')->get();
+        $documentos = Documento::where('tipo', 'DOC')->orderBy('id', 'DESC')->limit(6)->get();
+        $livros     = Documento::where('tipo', 'LIV')->orderBy('id', 'DESC')->limit(6)->get();
 
         if (!$descricao)
             $descricao = ' ';
@@ -24,7 +25,8 @@ class HomeController extends Controller
         return view('site.index', [
             'descricao'  => $descricao,
             'eventos'    => $eventos,
-            'documentos' => $documentos
+            'documentos' => $documentos,
+            'livros'     => $livros,
         ]);
     }
 }

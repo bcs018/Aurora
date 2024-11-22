@@ -20,7 +20,9 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
     Route::get('fotos'             , [FotoController::class     , 'indexPage'])->name('fotos.indexPage');
     Route::get('evento/{id}/fotos' , [FotoController::class     , 'listaFotos'])->name('fotos.listaFotos');
     Route::get('historia'          , [HistoriaController::class , 'indexPage'])->name('historia.indexPage');
-    Route::get('home'              , [HomeController::class     , 'indexPage'])->name('home.indexPage');
+    Route::get('documentos'        , [DocumentoController::class, 'listaDocumentos'])->name('documento.listaDocumentos');
+    Route::get('livros'            , [DocumentoController::class, 'listaLivros'])->name('documento.listaLivros');
+    Route::get('/'                 , [HomeController::class     , 'indexPage'])->name('home.indexPage');
 
     Route::prefix('painel')->middleware(RedirectIdNotAdmin::class)->group(function(){
         Route::get('/', function(){
@@ -48,11 +50,6 @@ Route::get('solicitar-troca-senha' , [LoginController::class, 'solicitarTrocarSe
 Route::get('nova-senha/{token}'    , [LoginController::class, 'novaSenha'])->name('login.novaSenha');
 Route::post('solicitar-troca-senha', [LoginController::class, 'solicitarTrocaSenha'])->name('login.solicitarTrocaSenhaPost');
 Route::post('trocar-senha/{token}' , [LoginController::class, 'trocarSenha'])->name('login.trocarSenha');
-
-
-Route::get('/', function () {
-    return to_route('home.indexPage');
-});
 
 Route::get('time', function(){
     // date_default_timezone_set('America/Sao_Paulo');

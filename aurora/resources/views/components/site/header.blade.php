@@ -43,8 +43,8 @@
                             Biblioteca
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Documentos</a></li>
-                            <li><a class="dropdown-item" href="#">Livros</a></li>
+                            <li><a class="dropdown-item" href="{{route('documento.listaDocumentos')}}">Documentos</a></li>
+                            <li><a class="dropdown-item" href="{{route('documento.listaLivros')}}">Livros</a></li>
                         </ul>
                     </li>
                     @if (Auth::user()->administrador == 1)
