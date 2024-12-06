@@ -147,6 +147,9 @@
     <script src="{{asset('assets/js/confirma-exclusao/evento.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/veneravel.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/livro.js')}}"></script>
+    <script src="{{asset('assets/js/envio-formulario/fotos.js')}}"></script>
+    <script src="{{asset('assets/js/envio-formulario/livros.js')}}"></script>
+    <script src="{{asset('assets/js/envio-formulario/documentos.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
 </body>
     

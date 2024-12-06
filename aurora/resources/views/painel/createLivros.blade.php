@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('livros.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('livros.store')}}" method="POST" id="cadastrar-livros-form" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -47,7 +47,11 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-success mt-3">Cadastrar</button>
+                        <button class="btn btn-success mt-3" id="cadastrar-livros">Cadastrar</button>
+                        <button class="btn btn-success mt-3 visually-hidden" type="button" disabled id="cadastrar-livros-loading">
+                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                            <span role="status">Aguarde, não feche nem mude de página...</span>
+                        </button>
                     </form>
                 </div>
             </div>

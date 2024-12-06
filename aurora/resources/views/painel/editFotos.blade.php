@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('fotos.update', $foto[0]->evento->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('fotos.update', $foto[0]->evento->id)}}" method="POST" id="editar-fotos-form" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -64,7 +64,11 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-success mt-3">Alterar</button>
+                        <button class="btn btn-success mt-3" id="editar-fotos">Alterar</button>
+                        <button class="btn btn-success mt-3 visually-hidden" type="button" disabled id="editar-fotos-loading">
+                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                            <span role="status">Aguarde, não feche nem mude de página...</span>
+                        </button>
                     </form>
                 </div>
             </div>

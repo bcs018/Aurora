@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('livros.update', $livro->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('livros.update', $livro->id)}}" method="POST" id="editar-livros-form" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -48,7 +48,11 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-success mt-3">Alterar</button>
+                        <button class="btn btn-success mt-3" id="editar-livros">Alterar</button>
+                        <button class="btn btn-success mt-3 visually-hidden" type="button" disabled id="editar-livros-loading">
+                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                            <span role="status">Aguarde, não feche nem mude de página...</span>
+                        </button>
                     </form>
                 </div>
             </div>
