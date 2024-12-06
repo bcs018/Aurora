@@ -23,7 +23,7 @@
                   <div class="card-body">
                     <div class="callout callout-warning">
                       <h5>Manual do usuário</h5>
-                      <a href="https://jucisrs.rs.gov.br/upload/arquivos/201710/30150625-criacao-de-pdf-a.pdf" target="_blank">Clique aqui para visualizar o manual de usuário do site</a>
+                      <a href="{{asset('storage/manual/manual_utitizacao_site.pdf')}}" target="_blank">Clique aqui para visualizar o manual de usuário do site</a>
                     </div>
                   </div>
                 </div>
