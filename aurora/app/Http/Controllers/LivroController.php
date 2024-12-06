@@ -101,7 +101,7 @@ class LivroController extends Controller
         ->autoclose(false)
         ->showConfirmButton('Ok', '#005284');
 
-        return to_route('documentos.edit', $id);
+        return to_route('livros.edit', $id);
     }
 
     /**
