@@ -73,7 +73,8 @@ class LoginController extends Controller
         
         return redirect()->back()->with(
             'success', 
-            'Enviamos para o  e-mail <b>'.$usuario->email.'</b> um link para a alteração de senha, este link é válido por 30 minutos.<br>'
+            'Enviamos para o  e-mail <b>'.$usuario->email.'</b> um link para a alteração de senha, este link é válido por 30 minutos.<br><br>'.
+            '<b>ATENÇÃO: </b>Confira sua caixa de spam ou lixo eletrônico.'
         );
     }
 
