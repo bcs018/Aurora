@@ -43,9 +43,8 @@
                                 <div class="form-group">
                                     <label>Descrição do evento</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="descricaoEvento" id="descricaoEvento" value="{{$foto[0]->evento->descricao}}"
-                                            class="form-control {{ $errors->has('descricaoEvento') ? 'is-invalid' : '' }}"
-                                            id="exampleFormControlInput1" autofocus>
+                                        <textarea name="descricaoEvento" id="descricaoEvento" class="form-control {{ $errors->has('descricaoEvento') ? 'is-invalid' : '' }}" id="exampleFormControlTextarea1" rows="9">{{$foto[0]->evento->descricao}}</textarea>
+
                                         <div class="invalid-feedback">{{ $errors->first('descricaoEvento') }} </div>
                                     </div>
                                 </div>
