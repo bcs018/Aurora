@@ -1,0 +1,19 @@
+v1.0.0
+16/12/2024
+
+- Desenvolvimento do site
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+v1.0.1
+18/12/2024
+
+- Ajuste para aceitar texto longo no campo descricao do evento 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+v1.0.2
+18/12/2024
+
+- Ajuste para fazer upload de fotos de forma assincrona, para enviar uma por uma 
+pois o servidor não estava aceitando fazer de uma vez só
