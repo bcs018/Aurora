@@ -7,6 +7,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DescricaoController;
 use App\Http\Controllers\HistoriaController;
 use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -37,6 +38,7 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
         Route::resource('historia'  , HistoriaController::class);
         Route::resource('documentos', DocumentoController::class);
         Route::resource('livros'    , LivroController::class);
+        Route::resource('eventos'   , EventoController::class);
         
         Route::delete('excluir-foto/{id}', [FotoController::class, 'destroyFoto'])->name('fotos.destroyFoto');
     });

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FotoRequest extends FormRequest
+class EventoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,7 @@ class FotoRequest extends FormRequest
     {
         return [
             'nomeEvento'      => 'required',
-            // 'descricaoEvento' => 'required',
-            'fotos'           => 'required'
+            'descricaoEvento' => 'required',
         ];
     }
 
@@ -32,8 +31,7 @@ class FotoRequest extends FormRequest
     {
         return [
             'nomeEvento.required'      => 'O campo Nome do evento é obrigatório',
-            // 'descricaoEvento.required' => 'O campo Descrição do evento é obrigatório',
-            'fotos.required'           => 'O campo Fotos é obrigatório'
+            'descricaoEvento.required' => 'O campo Descrição do evento é obrigatório',
         ];
     }
 }

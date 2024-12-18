@@ -119,7 +119,7 @@
         </div>
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Versão</b> 1.0.1
+                <b>Versão</b> 1.0.2
             </div>
             <strong>A.R.L.S. AURORA GUAÇUANA
         </footer>
@@ -151,6 +151,7 @@
     <script src="{{asset('assets/js/envio-formulario/livros.js')}}"></script>
     <script src="{{asset('assets/js/envio-formulario/documentos.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
+    <script src="{{asset('assets/js/axios/axios.min.js')}}"></script>
 </body>
     
 </html>

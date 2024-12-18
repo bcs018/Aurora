@@ -34,10 +34,12 @@
                                         <input type="text" name="nomeEvento" id="nomeEvento" value="{{$foto[0]->evento->nome}}"
                                             class="form-control {{ $errors->has('nomeEvento') ? 'is-invalid' : '' }}"
                                             id="exampleFormControlInput1" autofocus>
-                                        <div class="invalid-feedback">{{ $errors->first('nomeEvento') }} </div>
+                                        <div id="invalid-feedback-nomeEvento" class="invalid-feedback">{{ $errors->first('nomeEvento') }} </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <input type="hidden" id="evento_id" value="{{$foto[0]->evento->id}}">
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -45,7 +47,7 @@
                                     <div class="input-group mb-3">
                                         <textarea name="descricaoEvento" id="descricaoEvento" class="form-control {{ $errors->has('descricaoEvento') ? 'is-invalid' : '' }}" id="exampleFormControlTextarea1" rows="9">{{$foto[0]->evento->descricao}}</textarea>
 
-                                        <div class="invalid-feedback">{{ $errors->first('descricaoEvento') }} </div>
+                                        <div id="invalid-feedback-descricaoEvento" class="invalid-feedback">{{ $errors->first('descricaoEvento') }} </div>
                                     </div>
                                 </div>
                             </div>
@@ -53,8 +55,8 @@
                             <div class="col-md-12">
                                 <label>Selecione as novas fotos</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="inputGroupFile01" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
-                                    <div class="invalid-feedback">{{ $errors->first('fotos') }} </div>
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
+                                    <div id="invalid-feedback-fotos" class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">
                                     <strong>DICA: </strong>Organize todas as fotos em uma pasta para facilitar a seleção em lote. Para adicionar ou remover 
@@ -66,7 +68,7 @@
                         <button class="btn btn-success mt-3" id="editar-fotos">Alterar</button>
                         <button class="btn btn-success mt-3 visually-hidden" type="button" disabled id="editar-fotos-loading">
                             <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-                            <span role="status">Aguarde, não feche nem mude de página...</span>
+                            <span id="status" role="status">Aguarde, não feche nem mude de página</span>
                         </button>
                     </form>
                 </div>

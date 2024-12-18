@@ -53,38 +53,29 @@ class FotoController extends Controller
      */
     public function store(FotoRequest $request)
     {
-        $evento = new Evento();
-        $evento->nome = $request->input('nomeEvento');
-        $evento->descricao = $request->input('descricaoEvento');
-        $evento->capa = ' ';
-        $evento->save();
-
         /**
          * Salvar a foto aqui
          */
         if($request->file('fotos') != null)
         {
-            foreach($request->file('fotos') as $arquivo)
-            {
-                $diretorio = $arquivo->store('fotos', 'public');
+            $diretorio = $request->file('fotos')->store('fotos', 'public');
 
-                $foto = new Foto();
-                $foto->nome = $request->input('nomeEvento');
-                $foto->diretorio = $diretorio;
-                $foto->evento_id = $evento->id;
-                $foto->save();
-            }   
+            $foto = new Foto();
+            $foto->nome = $request->input('nomeEvento');
+            $foto->diretorio = $diretorio;
+            $foto->evento_id = $request->input('evento_id');
+            $foto->save();
         }
 
-        $evento = Evento::find($evento->id);
-        $evento->capa = $diretorio;
-        $evento->save();
+        $evento = Evento::find($request->input('evento_id'));
 
-        Alert::alert()->success('Sucesso', 'Fotos cadastrada com sucesso!')
-        ->autoclose(false)
-        ->showConfirmButton('Ok', '#005284');
+        if ($evento->capa == ' ')
+        {
+            $evento->capa = $diretorio;
+            $evento->save();
+        }
 
-        return to_route('fotos.create');
+        return response()->json(['message' => '', 'evento_id' => $evento->id], 200); 
     }
 
     /**
@@ -124,39 +115,19 @@ class FotoController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $request->validate(
-            [
-                'nomeEvento'      => 'required',
-                'descricaoEvento' => 'required'
-            ],
-            [
-                'nomeEvento.required'      => 'O campo Nome do evento é obrigatório',
-                'descricaoEvento.required' => 'O campo Descrição do evento é obrigatório'
-            ]
-        );
-
-        $evento = Evento::find($id);
-        $evento->nome = $request->input('nomeEvento');
-        $evento->descricao = $request->input('descricaoEvento');
-        $evento->save();
-
         if($request->file('fotos') != null)
         {
-            foreach($request->file('fotos') as $arquivo)
-            {
+            // foreach($request->file('fotos') as $arquivo)
+            // {
                 $foto = new Foto();
                 $foto->nome = $request->input('nomeEvento');
-                $foto->diretorio = $arquivo->store('fotos', 'public');
-                $foto->evento_id = $id;
+                $foto->diretorio = $request->file('fotos')->store('fotos', 'public');
+                $foto->evento_id = $request->input('evento_id');
                 $foto->save();
-            }   
+            // }   
         }
 
-        Alert::alert()->success('Sucesso', 'Fotos alterada com sucesso!')
-        ->autoclose(false)
-        ->showConfirmButton('Ok', '#005284');
-
-        return to_route('fotos.edit', $id);
+        return response()->json(['message' => '', 'evento_id' => $request->input('evento_id')], 200); 
     }
 
     /**
