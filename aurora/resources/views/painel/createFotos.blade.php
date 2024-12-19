@@ -64,7 +64,7 @@
                         <button class="btn btn-success mt-3" id="cadastrar-fotos">Cadastrar</button>
                         <button class="btn btn-success mt-3 visually-hidden" type="button" disabled id="cadastrar-fotos-loading">
                             <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-                            <span id="status" role="status"></span>
+                            <span id="status" role="status">Aguarde, não feche nem mude de página</span>
                         </button>
                     </form>
                 </div>

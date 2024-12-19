@@ -105,17 +105,26 @@ async function enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, tipo
             {
                 const eventoId = response.data.evento_id; 
                 const qtdFotos = fotos.length;
+                const lote = 5; // Número de fotos por envio
 
-                for (let i = 0; i < fotos.length; i++) {
-                    formData.append('fotos', fotos[i]);
+                for (let i = 0; i < fotos.length; i+=lote) {
+                    const formData = new FormData();
+
+                    for (let j = i; j < i + lote && j < fotos.length; j++) {
+                        formData.append('fotos[]', fotos[j]); // Use "fotos[]" para arrays
+                    }
+                    
                     formData.append('evento_id', eventoId);
+                    formData.append('nomeEvento', nomeEvento);
+                    formData.append('_token', _token);
 
                     try {
                         // cadastro das fotos
                         const response = await axios.post('/painel/fotos', formData, {
                             headers: { 'Content-Type': 'multipart/form-data' },
                             onUploadProgress: (progressEvent) => {
-                                $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload da foto ${i + 1} de ${qtdFotos}`);
+                                // $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload da foto ${i + 1} de ${qtdFotos}`);
+                                $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload das fotos ${i + 1} a ${Math.min(i + lote, qtdFotos)} de ${qtdFotos}`);
                             },
                         });
             

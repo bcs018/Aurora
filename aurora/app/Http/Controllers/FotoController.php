@@ -58,13 +58,17 @@ class FotoController extends Controller
          */
         if($request->file('fotos') != null)
         {
-            $diretorio = $request->file('fotos')->store('fotos', 'public');
+            foreach($request->file('fotos') as $arquivo)
+            {
+                // $diretorio = $request->file('fotos')->store('fotos', 'public');
+                $diretorio = $arquivo->store('fotos', 'public');
 
-            $foto = new Foto();
-            $foto->nome = $request->input('nomeEvento');
-            $foto->diretorio = $diretorio;
-            $foto->evento_id = $request->input('evento_id');
-            $foto->save();
+                $foto = new Foto();
+                $foto->nome = $request->input('nomeEvento');
+                $foto->diretorio = $diretorio;
+                $foto->evento_id = $request->input('evento_id');
+                $foto->save();
+            }
         }
 
         $evento = Evento::find($request->input('evento_id'));
@@ -117,14 +121,14 @@ class FotoController extends Controller
     {
         if($request->file('fotos') != null)
         {
-            // foreach($request->file('fotos') as $arquivo)
-            // {
+            foreach($request->file('fotos') as $arquivo)
+            {
                 $foto = new Foto();
                 $foto->nome = $request->input('nomeEvento');
-                $foto->diretorio = $request->file('fotos')->store('fotos', 'public');
+                $foto->diretorio = $arquivo->store('fotos', 'public');
                 $foto->evento_id = $request->input('evento_id');
                 $foto->save();
-            // }   
+            }   
         }
 
         return response()->json(['message' => '', 'evento_id' => $request->input('evento_id')], 200); 

@@ -20,9 +20,9 @@
                                         </h5>
                                     </a>
                                     
-                                    <p class="card-text">{{$evento->descricao}}</p>
+                                    {{-- <p class="card-text">{{$evento->descricao}}</p> --}}
                                     
-                                    <div class="mt-auto">
+                                    <div class="mt-3">
                                         <a href="{{route('fotos.listaFotos', $evento->id)}}" class="btn btn-dark">Ver fotos</a>
                                     </div>
                                 </div>

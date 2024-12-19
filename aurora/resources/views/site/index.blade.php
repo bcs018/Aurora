@@ -28,8 +28,8 @@
                             <img src="{{asset('storage/'.$evento->capa)}}" class="" alt="{{$evento->nome}}" style="height: 200px; object-fit: cover;">
                             <div class="card-body d-flex flex-column" style="flex: 1;">
                             <h5 class="card-title">{{$evento->nome}}</h5>
-                            <p class="card-text">{{$evento->descricao}}</p>
-                            <div class="mt-auto">
+                            {{-- <p class="card-text">{{$evento->descricao}}</p> --}}
+                            <div class="mt-3">
                                 <a href="{{route('fotos.listaFotos', $evento->id)}}" class="btn btn-dark">Ver fotos</a>
                             </div>
                             </div>
