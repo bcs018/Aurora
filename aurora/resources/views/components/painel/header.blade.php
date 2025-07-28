@@ -104,6 +104,12 @@
                                         <p>Veneráveis</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('videos.index')}}" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-video"></i>
+                                        <p>Vídeos</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <hr>
