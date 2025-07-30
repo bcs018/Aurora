@@ -83,7 +83,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('fotos.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-image"></i>
-                                        <p>Fotos</p>
+                                        <p>Mídias</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -102,12 +102,6 @@
                                     <a href="{{route('veneraveis.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-user-graduate"></i>
                                         <p>Veneráveis</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('videos.index')}}" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-video"></i>
-                                        <p>Vídeos</p>
                                     </a>
                                 </li>
                             </ul>

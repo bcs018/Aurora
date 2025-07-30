@@ -30,7 +30,7 @@
                         <a class="nav-link" href="{{route('historia.indexPage')}}">História</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('fotos.indexPage')}}">Fotos</a>
+                        <a class="nav-link" href="{{route('fotos.indexPage')}}">Mídias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('veneraveis.indexPage')}}">Veneráveis</a>

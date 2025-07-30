@@ -1,10 +1,10 @@
-<x-painel.header title="FOTOS | {{env('APP_NAME')}}">
+<x-painel.header title="MÍDIAS | {{env('APP_NAME')}}">
 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Fotos</h1>
+                    <h1>Mídias</h1>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="text-right mb-5">
-                <a href="{{route('fotos.create')}}" class="btn btn-success">Cadastrar foto</a>
+                <a href="{{route('fotos.create')}}" class="btn btn-success">Cadastrar fotos/vídeos</a>
             </div>
             <div class="table-responsive">
                 <table id="tableFotos" class="display">

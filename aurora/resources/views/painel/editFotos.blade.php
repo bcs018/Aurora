@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Editar fotos</h1>
+                    <h1>Editar mídias</h1>
                 </div>
             </div>
         </div>
@@ -53,14 +53,17 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione as novas fotos</label>
+                                <label>Selecione as novas fotos/vídeos</label>
                                 <div class="input-group ">
                                     <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
                                     <div id="invalid-feedback-fotos" class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">
-                                    <strong>DICA: </strong>Organize todas as fotos em uma pasta para facilitar a seleção em lote. Para adicionar ou remover 
+                                    <strong>DICA: </strong>Organize todas as fotos/vídeos em uma pasta para facilitar a seleção em lote. Para adicionar ou remover 
                                     fotos de um evento, acesse o menu "Fotos", selecione o evento desejado e insira ou exclua as imagens conforme necessário.
+                                </div>
+                                <div id="arquivosHelp" class="form-text mb-2">
+                                    <strong>ATENÇÃO: </strong>Como vídeos possuem maior tamanho, o upload pode ser mais lento. Não feche ou atualize a página até que o envio seja concluído.
                                 </div>
                             </div>
 
@@ -82,14 +85,32 @@
                 @forelse ($foto as $f)
                     <div class="col-md-3 album-card mb-2">
                         <div class="card d-flex flex-column" >
-                            <img src="{{asset('storage/'.$f->diretorio)}}" class="card-img-top" alt="{{$f->nome}}" style="height: 200px; object-fit: cover;">
+
+                            @php
+                                $ext = strtolower(pathinfo($f->diretorio, PATHINFO_EXTENSION));
+                                $isVideo = false;
+                            @endphp
+
+                            @if(in_array($ext, ['mp4', 'webm', 'mov'])) 
+                                <video class="card-img-top"  controls muted style="height: 200px; object-fit: cover;">
+                                    <source src="{{ asset('storage/' . $f->diretorio) }}" type="video/{{ $ext }}">
+                                    Seu navegador não suporta vídeos.
+                                </video>
+
+                                @php 
+                                    $isVideo = true 
+                                @endphp
+                            @else 
+                                <img src="{{asset('storage/'.$f->diretorio)}}" class="card-img-top" alt="{{$f->nome}}" style="height: 200px; object-fit: cover;">
+                            @endif
+
                             <div class="card-body d-flex flex-column" style="flex: 1;">
                                 <div class="">
                                     <form action="{{route('fotos.destroyFoto', $f->id)}}" class="excluir-foto" method="post" style="all: unset !important">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit" >
-                                            Excluir foto
+                                            {{($isVideo) ? 'Excluir vídeo' : 'Excluir foto'}}
                                         </button>
                                     </form>
                                 </div>

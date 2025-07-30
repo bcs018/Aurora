@@ -13,7 +13,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivroController;
-use App\Http\Controllers\VideoController;
 use App\Http\Middleware\RedirectIdNotAdmin;
 
 Route::middleware(RedirectIfAuthenticated::class)->group(function(){
@@ -40,7 +39,6 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
         Route::resource('documentos', DocumentoController::class);
         Route::resource('livros'    , LivroController::class);
         Route::resource('eventos'   , EventoController::class);
-        Route::resource('videos'    , VideoController::class);
         
         Route::delete('excluir-foto/{id}', [FotoController::class, 'destroyFoto'])->name('fotos.destroyFoto');
     });

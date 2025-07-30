@@ -39,6 +39,39 @@
                                 </div>
                                 <div style="color: #dc3545">{{ $errors->first('descricaoHistoria') }} </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <label>Selecione o vídeo a ser mostrado na página história</label>
+                                <div class="input-group ">
+                                    <input type="file" class="form-control {{ $errors->has('videoHistoria') ? 'is-invalid' : '' }}" id="videoHistoria" name="videoHistoria" accept="video/*" >
+                                    <div id="invalid-feedback-videoHistoria" class="invalid-feedback">{{ $errors->first('videoHistoria') }} </div>
+                                </div>
+                                <div id="arquivosHelp" class="form-text mb-4">
+                                    <strong>DICA: </strong>Para substituir o vídeo, basta inserir o novo arquivo. O vídeo atual será automaticamente removido e o novo ficará visível.
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Selecione a imagem da ATA</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control {{ $errors->has('imgAta') ? 'is-invalid' : '' }}" id="imgAta" name="imgAta" accept="image/jpeg, image/jpg, image/png, image/gif">
+                                    <div id="invalid-feedback-imgAta" class="invalid-feedback">{{ $errors->first('imgAta') }} </div>
+                                </div>
+                                <div id="arquivosHelp" class="form-text mb-4">
+                                    <strong>DICA: </strong>Para substituir o ATA, basta inserir o novo arquivo. A ATA atual será automaticamente removido e a nova ficará visível.
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Selecione o PDF do slide</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control {{ $errors->has('slide') ? 'is-invalid' : '' }}" id="slide" name="slide" accept="application/pdf" >
+                                    <div id="invalid-feedback-slide" class="invalid-feedback">{{ $errors->first('slide') }} </div>
+                                </div>
+                                <div id="arquivosHelp" class="form-text mb-4">
+                                    <strong>DICA: </strong>Para substituir o slide, basta inserir o novo arquivo. O slide atual será automaticamente removido e a nova ficará visível.
+                                </div>
+                            </div>
                         </div>
                         <button class="btn btn-success mt-3">Cadastrar</button>
                     </form>

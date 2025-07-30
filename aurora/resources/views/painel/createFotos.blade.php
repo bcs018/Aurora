@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Cadastrar fotos</h1>
+                    <h1>Cadastrar mídias</h1>
                 </div>
             </div>
         </div>
@@ -49,14 +49,17 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione as fotos</label>
+                                <label>Selecione as fotos/vídeos</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif, video/*" multiple>
                                     <div id="invalid-feedback-fotos" class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">
-                                    <strong>DICA: </strong>Organize todas as fotos em uma pasta para facilitar a seleção em lote. Para adicionar ou remover 
+                                    <strong>DICA: </strong>Organize todas as fotos/vídeos em uma pasta para facilitar a seleção em lote. Para adicionar ou remover 
                                     fotos de um evento, acesse o menu "Fotos", selecione o evento desejado e insira ou exclua as imagens conforme necessário.
+                                </div>
+                                <div id="arquivosHelp" class="form-text mb-2">
+                                    <strong>ATENÇÃO: </strong>Como vídeos possuem maior tamanho, o upload pode ser mais lento. Não feche ou atualize a página até que o envio seja concluído.
                                 </div>
                             </div>
 
