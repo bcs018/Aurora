@@ -71,6 +71,9 @@
                                 <div id="arquivosHelp" class="form-text mb-4">
                                     <strong>DICA: </strong>Para substituir o slide, basta inserir o novo arquivo. O slide atual será automaticamente removido e a nova ficará visível.
                                 </div>
+                                <div id="arquivosHelp" class="form-text mb-2">
+                                    <strong>ATENÇÃO: </strong>Como vídeos possuem maior tamanho, o upload pode ser mais lento. Não feche ou atualize a página até que o envio seja concluído.
+                                </div>
                             </div>
                         </div>
                         <button class="btn btn-success mt-3">Cadastrar</button>

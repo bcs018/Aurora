@@ -6,6 +6,7 @@ use App\Http\Requests\DescricaoPagHistoriaRequest;
 use App\Models\Historia;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class HistoriaController extends Controller
 {
@@ -49,7 +50,32 @@ class HistoriaController extends Controller
     public function store(DescricaoPagHistoriaRequest $request)
     {
         $historia = new Historia();
+
+        $his = $historia->find(1);
+
+        if ($his != null)
+        {
+            $dirVideo = $his->video_diretorio;
+            $dirSlide = $his->slide_diretorio;
+            $dirAta = $his->Ata_diretorio;
+    
+            Storage::disk('public')->delete($dirVideo);
+            Storage::disk('public')->delete($dirSlide);
+            Storage::disk('public')->delete($dirAta);
+        }
+        
         $historia->truncate();
+
+        // dd($request);
+
+        if ($request->file('videoHistoria') != null)
+            $historia->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
+
+        if ($request->file('imgAta') != null)
+            $historia->ata_diretorio = $request->file('imgAta')->store('img-ata', 'public');
+
+        if ($request->file('slide') != null)
+            $historia->slide_diretorio = $request->file('slide')->store('slide', 'public');
 
         $historia->conteudo = $request->input('descricaoHistoria');
         $historia->save();
