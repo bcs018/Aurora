@@ -26,17 +26,17 @@
         </div>
     </div>
 
-
     <div class="content">
         <div class="container">
-            <h1 class="text-center mb-4">Vídeos</h1>
             <div class="row">
+                <h1 class="text-center mb-4">Vídeos</h1>
                 @forelse ($fotos as $index => $foto)
                     @php
                         $ext = strtolower(pathinfo($foto->diretorio, PATHINFO_EXTENSION))
                     @endphp
 
                     @if(in_array($ext, ['mp4', 'webm', 'mov'])) 
+
                         <div class="col-md-4 album-card mb-2">
                             <div data-bs-toggle="modal" data-bs-target="#videoModal" data-index="{{ $index }}" data-video-ext={{$ext}} data-video-url="{{ asset('storage/' . $foto->diretorio) }}">
                                 <video class="album-img"  controls muted>

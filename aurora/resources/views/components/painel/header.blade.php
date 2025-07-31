@@ -65,7 +65,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('historia.create')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-file-lines"></i>
-                                        <p>Descrição pág história</p>
+                                        <p>Página história</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -83,7 +83,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('fotos.index')}}" class="nav-link">
                                         <i class="nav-icon fa-solid fa-image"></i>
-                                        <p>Mídias</p>
+                                        <p>Eventos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -149,6 +149,7 @@
     <script src="{{asset('assets/js/confirma-exclusao/livro.js')}}"></script>
     <script src="{{asset('assets/js/envio-formulario/fotos.js')}}"></script>
     <script src="{{asset('assets/js/envio-formulario/livros.js')}}"></script>
+    <script src="{{asset('assets/js/envio-formulario/historia.js')}}"></script>
     <script src="{{asset('assets/js/envio-formulario/documentos.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
     <script src="{{asset('assets/js/axios/axios.min.js')}}"></script>

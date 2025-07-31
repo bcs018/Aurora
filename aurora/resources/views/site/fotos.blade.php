@@ -1,8 +1,8 @@
-<x-site.header title="MÍDIAS | {{ env('APP_NAME') }}  N° 3551">
+<x-site.header title="EVENTOS | {{ env('APP_NAME') }}  N° 3551">
 
     <div class="content">
         <div class="container text-center">
-            <h1 class="mb-5">Mídias de eventos</h1>
+            <h1 class="mb-5">Eventos</h1>
         </div>
 
         <section id="albuns" class="my-5 pt-5">

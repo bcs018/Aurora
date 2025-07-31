@@ -10,10 +10,17 @@ $(()=>{
         if (validar(descricaoEvento, nomeEvento, fotos))
             return;
 
-        $("#cadastrar-fotos").addClass("visually-hidden");
-        $("#cadastrar-fotos-loading").removeClass("visually-hidden");
+        Swal.fire({
+            title: "ATENÇÃO!",
+            text: "O envio de vídeos podem demorar mais que o normal, não feche nem atualize a página enquanto o processo não finalizar! Após apertar OK o processo se iniciará.",
+            icon: "warning",
+            confirmButtonColor: "#005284",
+        }).then(async(result) => {
+            $("#cadastrar-fotos").addClass("visually-hidden");
+            $("#cadastrar-fotos-loading").removeClass("visually-hidden");
 
-        enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, 'INC');
+            enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, 'INC');
+        });
     })
 
     $("#editar-fotos-form").on('submit', function(e){
@@ -28,10 +35,18 @@ $(()=>{
         if (validar(descricaoEvento, nomeEvento, fotos, 'ALT'))
             return;
 
-        $("#editar-fotos").addClass("visually-hidden");
-        $("#editar-fotos-loading").removeClass("visually-hidden");
+         Swal.fire({
+            title: "ATENÇÃO!",
+            text: "O envio de vídeos podem demorar mais que o normal, não feche nem atualize a página enquanto o processo não finalizar! Após apertar OK o processo se iniciará.",
+            icon: "warning",
+            confirmButtonColor: "#005284",
+        }).then(async(result) => {
+            $("#editar-fotos").addClass("visually-hidden");
+            $("#editar-fotos-loading").removeClass("visually-hidden");
 
-        enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, 'ALT', evento_id);
+            enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, 'ALT', evento_id);
+        });
+
     })
 })()
 
@@ -105,7 +120,7 @@ async function enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, tipo
             {
                 const eventoId = response.data.evento_id; 
                 const qtdFotos = fotos.length;
-                const lote = 5; // Número de fotos por envio
+                const lote = 1; // Número de fotos por envio
 
                 for (let i = 0; i < fotos.length; i+=lote) {
                     const formData = new FormData();
@@ -124,7 +139,7 @@ async function enviarFormulario(descricaoEvento, nomeEvento, fotos, _token, tipo
                             headers: { 'Content-Type': 'multipart/form-data' },
                             onUploadProgress: (progressEvent) => {
                                 // $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload da foto ${i + 1} de ${qtdFotos}`);
-                                $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload das fotos ${i + 1} a ${Math.min(i + lote, qtdFotos)} de ${qtdFotos}`);
+                                $("#status").html(` Aguarde, não feche nem mude de página, fazendo upload das fotos/vídeos ${i + 1} a ${Math.min(i + lote, qtdFotos)} de ${qtdFotos}`);
                             },
                         });
             

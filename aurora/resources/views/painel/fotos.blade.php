@@ -1,10 +1,10 @@
-<x-painel.header title="MÍDIAS | {{env('APP_NAME')}}">
+<x-painel.header title="MÍDIAS DE EVENTOS | {{env('APP_NAME')}}">
 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Mídias</h1>
+                    <h1>Mídias de eventos</h1>
                 </div>
             </div>
         </div>

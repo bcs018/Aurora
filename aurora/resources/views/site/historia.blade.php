@@ -26,7 +26,7 @@
                     <h2 class="mb-4">ATA</h2>
                 </div>
                 <div class="container text-center">
-                    <img src="{{ asset('storage/' . $historia->ata_diretorio) }}" alt="Imagem ATA"  class="img-fluid" style="max-width: 300px;">
+                    <img src="{{ asset('storage/' . $historia->ata_diretorio) }}" alt="Imagem ATA"  class="img-fluid" >
                 </div>
             @endif
             @if ($historia->slide_diretorio)

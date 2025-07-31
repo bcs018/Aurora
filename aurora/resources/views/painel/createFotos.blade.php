@@ -1,10 +1,10 @@
-<x-painel.header title="CADASTRAR FOTOS | {{env('APP_NAME')}}">
+<x-painel.header title="CADASTRAR MÍDIAS | {{env('APP_NAME')}}">
 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Cadastrar mídias</h1>
+                    <h1>Cadastrar mídias para evento</h1>
                 </div>
             </div>
         </div>
@@ -49,9 +49,9 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione as fotos/vídeos</label>
+                                <label>Selecione as fotos/vídeos (Vídeos devem ser em formato MP4 e tamanho máximo 1GB)</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif, video/*" multiple>
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif, video/mp4" multiple>
                                     <div id="invalid-feedback-fotos" class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">

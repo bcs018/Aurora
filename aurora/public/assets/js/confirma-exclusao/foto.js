@@ -5,7 +5,7 @@
 
         Swal.fire({
             title: "Atenção",
-            text: "Deseja remover esta foto?",
+            text: "Deseja remover esta foto/vídeo?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center mb-3">
-                    <h1>Editar mídias</h1>
+                    <h1>Editar mídias de eventos</h1>
                 </div>
             </div>
         </div>
@@ -53,9 +53,9 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione as novas fotos/vídeos</label>
+                                <label>Selecione as novas fotos/vídeos (Vídeos devem ser em formato MP4 e tamanho máximo 1GB)</label>
                                 <div class="input-group ">
-                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif" multiple>
+                                    <input type="file" class="form-control {{ $errors->has('fotos') ? 'is-invalid' : '' }}" id="fotos" name="fotos[]" accept="image/jpeg, image/jpg, image/png, image/gif, video/mp4" multiple>
                                     <div id="invalid-feedback-fotos" class="invalid-feedback">{{ $errors->first('fotos') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-2">
