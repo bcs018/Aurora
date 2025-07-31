@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('historias', function (Blueprint $table) {
-            $table->string('video_diretorio');
-            $table->string('slide_diretorio');
-            $table->string('ata_diretorio');
+            $table->string('video_diretorio')->default('');
+            $table->string('slide_diretorio')->default('');
+            $table->string('ata_diretorio')->default('');
         });
     }
 

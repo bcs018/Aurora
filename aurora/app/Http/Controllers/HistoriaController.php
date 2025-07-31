@@ -15,14 +15,14 @@ class HistoriaController extends Controller
      */
     public function indexPage()
     {
-        $texto = Historia::find(1);
+        $historia = Historia::find(1);
 
-        if (!$texto)
+        if (!$historia)
             $texto = ' ';
         else 
-            $texto = $texto->conteudo;
+            $texto = $historia->conteudo;
 
-        return view('site.historia', ['texto'=>$texto]);
+        return view('site.historia', ['texto'=>$texto, 'historia'=>$historia]);
     }
 
     public function index()
@@ -55,31 +55,55 @@ class HistoriaController extends Controller
 
         if ($his != null)
         {
-            $dirVideo = $his->video_diretorio;
-            $dirSlide = $his->slide_diretorio;
-            $dirAta = $his->Ata_diretorio;
-    
-            Storage::disk('public')->delete($dirVideo);
-            Storage::disk('public')->delete($dirSlide);
-            Storage::disk('public')->delete($dirAta);
+            // if ($his->video_diretorio)
+            // {
+                 if ($request->file('videoHistoria') != null)
+                 {
+                     Storage::disk('public')->delete($his->video_diretorio);
+                     $his->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
+                 }
+            // }
+
+            // if ($his->slide_diretorio)
+            // {
+                if ($request->file('slide') != null)
+                {
+                    Storage::disk('public')->delete($his->slide_diretorio);
+                    $his->slide_diretorio = $request->file('slide')->store('slide', 'public');
+                }
+            // }
+
+            // if ($his->ata_diretorio)
+            // {
+                if ($request->file('imgAta') != null)
+                {
+                    Storage::disk('public')->delete($his->ata_diretorio);
+                    $his->ata_diretorio = $request->file('imgAta')->store('img-ata', 'public');
+                }
+                    
+            // }
+            $his->conteudo = $request->input('descricaoHistoria');
+            $his->save();
+        }
+        else 
+        {
+            if ($request->file('videoHistoria') != null)
+                $historia->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
+
+            if ($request->file('imgAta') != null)
+                $historia->ata_diretorio = $request->file('imgAta')->store('img-ata', 'public');
+
+            if ($request->file('slide') != null)
+                $historia->slide_diretorio = $request->file('slide')->store('slide', 'public');
+
+            $historia->conteudo = $request->input('descricaoHistoria');
+            $historia->save();
         }
         
-        $historia->truncate();
+        // $historia->truncate();
 
         // dd($request);
-
-        if ($request->file('videoHistoria') != null)
-            $historia->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
-
-        if ($request->file('imgAta') != null)
-            $historia->ata_diretorio = $request->file('imgAta')->store('img-ata', 'public');
-
-        if ($request->file('slide') != null)
-            $historia->slide_diretorio = $request->file('slide')->store('slide', 'public');
-
-        $historia->conteudo = $request->input('descricaoHistoria');
-        $historia->save();
-
+        
         Alert::alert()->success('Sucesso', 'História cadastrada com sucesso!')
         ->autoclose(false)
         ->showConfirmButton('Ok', '#005284');
