@@ -119,7 +119,7 @@
         </div>
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Versão</b> 1.0.2
+                <b>Versão</b> 1.1.0
             </div>
             <strong>A.R.L.S. AURORA GUAÇUANA
         </footer>
