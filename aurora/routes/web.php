@@ -39,6 +39,8 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function(){
         Route::resource('documentos', DocumentoController::class);
         Route::resource('livros'    , LivroController::class);
         Route::resource('eventos'   , EventoController::class);
+
+        Route::post('store-video', [HistoriaController::class, 'storeVideo'])->name('historia.saveVideo');
         
         Route::delete('excluir-foto/{id}', [FotoController::class, 'destroyFoto'])->name('fotos.destroyFoto');
     });

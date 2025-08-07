@@ -7,6 +7,8 @@ use App\Models\Historia;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 
 class HistoriaController extends Controller
 {
@@ -44,11 +46,105 @@ class HistoriaController extends Controller
         return view('painel.createDescricaoPagHistoria', ['texto'=>$texto]);
     }
 
+    public function storeVideo(Request $request)
+    {
+
+        $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+
+        if ($receiver->isUploaded()) {
+            $save = $receiver->receive();
+
+            if ($save->isFinished()) {
+                $video = $save->getFile();
+                $videoPath = $video->store('video-historia', 'public');
+                //  = $video->store('uploads/videos', 'public');
+
+                // $file1Path = $request->file('slide')->store('slide', 'public'); 
+                // $file2Path =  $request->file('imgAta')->store('img-ata', 'public');
+                // $text = $request->input('descricaoHistoria');
+
+                $historia = new Historia();
+
+                $his = $historia->find(1);
+
+                if ($his != null)
+                {
+                    Storage::disk('public')->delete($his->video_diretorio);
+                    $his->video_diretorio = $videoPath;
+                    $his->save();
+                }
+                else 
+                {
+                    $historia->video_diretorio = $videoPath;
+                    $historia->ata_diretorio = ' ';
+                    $historia->slide_diretorio = ' ';
+
+                    $historia->conteudo = ' ';
+                    $historia->save();
+                }
+
+                return response()->json([
+                    'status' => 'success'
+                ]);
+            }
+
+             Alert::alert()->success('Sucesso', 'História cadastrada com sucesso!')
+            ->autoclose(false)
+            ->showConfirmButton('Ok', '#005284');
+
+            return to_route('historia.create');
+
+            return response()->json([
+                "done" => $save->handler()->getPercentageDone(),
+                "status" => true
+            ]);
+        }
+
+        return response()->json(['error' => 'Arquivo não recebido.'], 400);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(DescricaoPagHistoriaRequest $request)
     {
+
+        // $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+
+        // if ($receiver->isUploaded()) {
+        //     $save = $receiver->receive();
+
+        //     if ($save->isFinished()) {
+        //         $video = $save->getFile();
+        //         $videoPath = $video->store('video-historia', 'public');
+        //         //  = $video->store('uploads/videos', 'public');
+
+        //         // $file1Path = $request->file('slide')->store('slide', 'public'); 
+        //         // $file2Path =  $request->file('imgAta')->store('img-ata', 'public');
+        //         // $text = $request->input('descricaoHistoria');
+
+
+        //         $file1Path = $request->hasFile('slide') ? $request->file('slide')->store('slide', 'public') : null;
+        //         $file2Path = $request->hasFile('imgAta') ? $request->file('imgAta')->store('img-ata', 'public') : null;
+        //         $text = $request->input('descricaoHistoria', '');
+
+        //         return response()->json([
+        //             'video' => $videoPath,
+        //             'file1' => $file1Path,
+        //             'file2' => $file2Path,
+        //             'description' => $text,
+        //             'status' => 'success'
+        //         ]);
+        //     }
+
+        //     return response()->json([
+        //         "done" => $save->handler()->getPercentageDone(),
+        //         "status" => true
+        //     ]);
+        // }
+
+        // return response()->json(['error' => 'Arquivo não recebido.'], 400);
+
         $historia = new Historia();
 
         $his = $historia->find(1);
@@ -57,11 +153,11 @@ class HistoriaController extends Controller
         {
             // if ($his->video_diretorio)
             // {
-                 if ($request->file('videoHistoria') != null)
-                 {
-                     Storage::disk('public')->delete($his->video_diretorio);
-                     $his->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
-                 }
+                //  if ($request->file('videoHistoria') != null)
+                //  {
+                //      Storage::disk('public')->delete($his->video_diretorio);
+                //      $his->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
+                //  }
             // }
 
             // if ($his->slide_diretorio)
@@ -87,8 +183,8 @@ class HistoriaController extends Controller
         }
         else 
         {
-            if ($request->file('videoHistoria') != null)
-                $historia->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
+            // if ($request->file('videoHistoria') != null)
+            //     $historia->video_diretorio = $request->file('videoHistoria')->store('video-historia', 'public');
 
             if ($request->file('imgAta') != null)
                 $historia->ata_diretorio = $request->file('imgAta')->store('img-ata', 'public');
