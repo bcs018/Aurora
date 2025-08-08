@@ -22,7 +22,6 @@ class DescricaoPagHistoriaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'descricaoHistoria' => 'required',
             'videoHistoria'     => 'nullable|file|mimetypes:video/mp4|max:1048576',
             'slide'             => 'nullable|file|mimetypes:application/pdf',
         ];
@@ -31,7 +30,6 @@ class DescricaoPagHistoriaRequest extends FormRequest
     public function messages()
     {
         return [
-            'descricaoHistoria.required' => 'O campo Descrição é obrigatório',
             'videoHistoria.file'         => 'O arquivo enviado não é válido.',
             'videoHistoria.mimetypes'    => 'O arquivo deve ser vídeo (MP4).',
             'videoHistoria.max'          => 'O tamanho máximo permitido é de 1GB.',

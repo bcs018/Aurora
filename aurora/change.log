@@ -17,3 +17,17 @@ v1.0.2
 
 - Ajuste para fazer upload de fotos de forma assincrona, para enviar uma por uma 
 pois o servidor não estava aceitando fazer de uma vez só
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+v1.1.0
+05/08/2025
+
+- Poder enviar videos junto com fotos e adicionado um video, slide (pdf) e imagem ATA 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+v1.1.1
+08/08/2025
+
+- Ajuste para enviar o video na pagina historia, agora o video é enviado em partes, pois é muito grande (5gb)

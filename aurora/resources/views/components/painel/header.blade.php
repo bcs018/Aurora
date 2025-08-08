@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/select2/select2.css')}}" />
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    {{-- <link rel="stylesheet" href="{{asset('assets/css/summernote/summernote.min.css')}}" /> --}}
+    {{-- <link rel="stylesheet" href="{{asset('assets/css/dataTables/dataTables.css')}}" /> --}}
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
@@ -119,7 +121,7 @@
         </div>
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Versão</b> 1.1.0
+                <b>Versão</b> 1.1.1
             </div>
             <strong>A.R.L.S. AURORA GUAÇUANA
         </footer>
@@ -138,7 +140,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    {{-- <script src="{{asset('assets/js/dataTables/dataTables.js')}}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    {{-- <script src="{{asset('assets/js/summernote/summernote-lite.min.js')}}"></script> --}}
     <script src="{{asset('assets/js/textarea-edit/textarea-edit.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/usuario.js')}}"></script>
     <script src="{{asset('assets/js/confirma-exclusao/agenda.js')}}"></script>
@@ -153,6 +157,7 @@
     <script src="{{asset('assets/js/envio-formulario/documentos.js')}}"></script>
     <script src="{{asset('assets/js/tabelas/tabelas.js')}}"></script>
     <script src="{{asset('assets/js/axios/axios.min.js')}}"></script>
+    <script src="{{asset('assets/js/resumable/resumable.js')}}"></script>
 </body>
     
 </html>

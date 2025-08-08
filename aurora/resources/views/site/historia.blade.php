@@ -13,7 +13,7 @@
             </p>
         </div>
         @if (!is_null($historia))
-            @if ($historia->video_diretorio)
+            @if ($historia->video_diretorio && trim($historia->video_diretorio) != '')
                 <div class="container text-center">
                     <video controls muted style="height: 600px" width="95%">
                         <source src="{{ asset('storage/' . $historia->video_diretorio) }}" type="video/mp4">
@@ -21,7 +21,7 @@
                     </video>
                 </div>
             @endif
-            @if ($historia->ata_diretorio)
+            @if ($historia->ata_diretorio && trim($historia->ata_diretorio) != '')
                 <div class="container text-center mt-5">
                     <h2 class="mb-4">ATA</h2>
                 </div>
@@ -29,7 +29,7 @@
                     <img src="{{ asset('storage/' . $historia->ata_diretorio) }}" alt="Imagem ATA"  class="img-fluid" >
                 </div>
             @endif
-            @if ($historia->slide_diretorio)
+            @if ($historia->slide_diretorio && trim($historia->slide_diretorio) != '')
                 <div class="container text-center mt-5">
                     <iframe src="{{ asset('storage/' . $historia->slide_diretorio) }}" style="height: 600px" width="95%"></iframe>
                 </div>
