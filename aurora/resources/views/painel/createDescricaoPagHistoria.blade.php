@@ -57,9 +57,9 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Selecione a imagem da ATA</label>
+                                <label>Selecione o PDF da ATA</label>
                                 <div class="input-group">
-                                    <input type="file" class="form-control {{ $errors->has('imgAta') ? 'is-invalid' : '' }}" id="imgAta" name="imgAta" accept="image/jpeg, image/jpg, image/png, image/gif">
+                                    <input type="file" class="form-control {{ $errors->has('imgAta') ? 'is-invalid' : '' }}" id="imgAta" name="imgAta" accept="application/pdf">
                                     <div id="invalid-feedback-imgAta" class="invalid-feedback">{{ $errors->first('imgAta') }} </div>
                                 </div>
                                 <div id="arquivosHelp" class="form-text mb-5">

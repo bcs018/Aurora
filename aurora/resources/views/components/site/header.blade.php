@@ -7,6 +7,7 @@
     <title>{{$title}}</title>
     <link rel="stylesheet" href=" {{asset('assets/css/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href=" {{asset('assets/css/site/style.css')}} ">
+    <script src="{{ asset('assets/js/pdfjs/pdf.min.js') }}"></script>
 </head>
 
 <body style="padding-top: 55px;">
@@ -73,6 +74,9 @@
 
     <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/fotos-carrosel-modal/fotos-carrosel.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js')}}" ></script>
+    <script src="{{ asset('assets/js/exibir-pdf-na-tela/exibir-pdf-ata.js') }}"></script>
+    <script src="{{ asset('assets/js/exibir-pdf-na-tela/exibir-pdf-slide.js') }}"></script>
 </body>
 
 </html>
